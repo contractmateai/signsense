@@ -1,3 +1,4 @@
+// Minor change for commit
 // api/analyze.js — FINAL FULL VERSION
 // Requires env: OPENAI_API_KEY
 
@@ -9,7 +10,7 @@ function send(res, code, obj) {
 
 // -------------------------------------------
 // STATIC UI LABEL TRANSLATIONS
-// (ALL FIXED EXACTLY AS USER REQUESTED)
+// (ALL FIXED EXACTLY AS USER REQUESTED) 
 // -------------------------------------------
 const UI = {
   en: {
