@@ -2,11 +2,9 @@ import React from "react";
 
 const AnalysisSidebar = () => (
   <aside className="sidebar">
-    <div className="brand">
-      <a href="/" aria-label="Go to homepage">
-        <img src="https://imgur.com/Z5hv7K9.png" alt="SignSense logo" />
-        <span>SignSense</span>
-      </a>
+    <div className="brand" style={{display: 'flex', alignItems: 'center', gap: 12, paddingTop: 4}}>
+      <img src="https://imgur.com/Z5hv7K9.png" alt="SignSense logo" style={{width: 34, height: 34}} />
+      <span style={{color: '#fff', fontSize: 24, fontWeight: 400, position: 'relative', top: -2, letterSpacing: 0.5}}>SignSense</span>
     </div>
     <nav className="nav">
       <a className="active" href="#"><img className="arr" src="https://imgur.com/CHGomYz.png" alt="" /><img className="icon" src="https://imgur.com/lnQTDuo.png" alt="" /><span>Overview</span></a>

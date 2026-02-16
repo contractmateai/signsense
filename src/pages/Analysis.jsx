@@ -1,3 +1,8 @@
+  // Fix: Add handleEmailChange for email input
+  const handleEmailChange = (e) => {
+    setEmail(e.target.value);
+    setEmailError("");
+  };
 // Workspace touch: force clean build after full reinstall
 // Workspace touch: force clean build
 // Workspace touch: commit trigger for reset
