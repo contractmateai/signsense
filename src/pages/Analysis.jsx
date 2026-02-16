@@ -281,6 +281,7 @@ import AnalysisSidebar from "../components/AnalysisSidebar";
 import AnalysisDrawer from "../components/AnalysisDrawer";
 import PDFGenerator from "../utils/PDFGenerator";
 import "../styles/analysis.css";
+import { supabase } from "../supabaseClient";
 
 function clamp(val, min = 0, max = 100) {
   return Math.max(min, Math.min(max, Number(val) || 0));
@@ -344,57 +345,40 @@ const Analysis = () => {
   }, []);
 
   // Email modal/inline logic
-  const isMobile = () => window.matchMedia("(max-width: 980px)").matches;
-
-  const openEmailForm = () => {
-    if (isMobile()) {
-      setShowEmailInline(true);
-    } else {
-      setShowEmailModal(true);
+  const saveEmail = async () => {
+    if (!email) {
+      alert("Please enter your email");
+      return;
     }
-    setEmail("");
-    setEmailError("");
+    const { error } = await supabase
+      .from("leads")
+      .insert([{ email }]);
+    if (error) {
+      alert("Error saving email");
+      return;
+    }
   };
-
-  const closeEmailForm = () => {
-    setShowEmailModal(false);
-    setShowEmailInline(false);
-    setEmail("");
-    setEmailError("");
-  };
-
-  const validEmail = (e) =>
-    /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test((e || "").trim());
-
-  const handleEmailChange = (e) => {
-    setEmail(e.target.value);
-    setEmailError("");
-  };
-
+  const isMobile = () => window.matchMedia("(max-width: 980px)").matches;
   const handleEmailSubmit = async (e) => {
     e.preventDefault();
-
     if (!validEmail(email)) {
       setEmailError("Please enter a valid email address.");
       return;
     }
-
     setEmailError("");
     setDownloading(true);
-
+    await saveEmail();
     try {
+      // ...existing download logic...
       // Get original analysis data
       const analysis = data?.analysis || {};
-
       // Use cached translation if available for the selected language
       const cachedTranslation = translationCache[lang] || {};
-
       // Fallback to API translations (though they're usually empty)
       const apiTranslation =
         data?.translations?.[lang]?.analysis ||
         data?.translations?.[String(lang || "").toUpperCase()]?.analysis ||
         {};
-
       // Get translated arrays - prioritize cache, then API, then original
       const translatedSummary =
         Array.isArray(cachedTranslation.summary) &&
@@ -406,7 +390,6 @@ const Analysis = () => {
             : Array.isArray(analysis.summary) && analysis.summary.length
               ? analysis.summary
               : [];
-
       const translatedIssues =
         Array.isArray(cachedTranslation.potentialIssues) &&
         cachedTranslation.potentialIssues.length
@@ -418,7 +401,6 @@ const Analysis = () => {
                 analysis.potentialIssues.length
               ? analysis.potentialIssues
               : [];
-
       const translatedSuggestions =
         Array.isArray(cachedTranslation.smartSuggestions) &&
         cachedTranslation.smartSuggestions.length
@@ -430,7 +412,6 @@ const Analysis = () => {
                 analysis.smartSuggestions.length
               ? analysis.smartSuggestions
               : [];
-
       const translatedClauses =
         Array.isArray(cachedTranslation.mainClauses) &&
         cachedTranslation.mainClauses.length
@@ -441,38 +422,32 @@ const Analysis = () => {
             : Array.isArray(analysis.mainClauses) && analysis.mainClauses.length
               ? analysis.mainClauses
               : [];
-
       // Get translated notes
       const translatedRiskNote =
         cachedTranslation.riskNote ||
         apiTranslation.risk?.note ||
         analysis.risk?.note ||
         "";
-
       const translatedClarityNote =
         cachedTranslation.clarityNote ||
         apiTranslation.clarity?.note ||
         analysis.clarity?.note ||
         "";
-
       const translatedScoreLine =
         cachedTranslation.scoreLine ||
         apiTranslation.scoreChecker?.line ||
         analysis.scoreChecker?.line ||
         "";
-
       // Get static translated notes for consistent UI/PDF display
       const staticTranslations =
         STATIC_TRANSLATIONS[lang] || STATIC_TRANSLATIONS.en;
       const pdfStaticRiskNote = staticTranslations.riskStatic;
       const pdfStaticClarityNote = staticTranslations.clarityStatic;
       const pdfStaticScoreNote = staticTranslations.scoreStatic;
-
       // Calculate verdicts using same logic as UI display
       const riskValue = analysis.risk?.value || 0;
       const clarityValue = analysis.clarity?.value || 0;
       const scoreValue = analysis.scoreChecker?.value || 0;
-
       // Risk verdict: lower is better (0-29 = very safe, 30-62 = not safe, 63+ = unsafe)
       const riskVerdict =
         riskValue <= 29
@@ -494,7 +469,6 @@ const Analysis = () => {
           : scoreValue >= 30
             ? "notThatSafe"
             : "unsafe";
-
       // Build translated risk/clarity/score objects with calculated verdicts
       const translatedRisk = {
         value: riskValue,
@@ -502,14 +476,12 @@ const Analysis = () => {
         safety: staticTranslations[riskVerdict] || staticTranslations.unsafe,
         band: analysis.risk?.band || "green",
       };
-
       const translatedClarity = {
         value: clarityValue,
         note: pdfStaticClarityNote,
         safety: staticTranslations[clarityVerdict] || staticTranslations.unsafe,
         band: analysis.clarity?.band || "green",
       };
-
       const translatedScoreChecker = {
         value: scoreValue,
         line: pdfStaticScoreNote,
@@ -517,7 +489,6 @@ const Analysis = () => {
         band: analysis.scoreChecker?.band || "green",
         verdict: analysis.scoreChecker?.verdict || "safe",
       };
-
       // Get translated title
       const translatedTitle =
         cachedTranslation.contractTitle ||
@@ -525,7 +496,6 @@ const Analysis = () => {
         data.contractTitle ||
         data.contractName ||
         "Contract";
-
       // Map API response structure to PDF generator expectations with translated content
       // IMPORTANT: These values MUST match exactly what is displayed in the UI
       // Use clamp() to ensure 0-100 range, same as UI display
@@ -537,6 +507,30 @@ const Analysis = () => {
         clauses: translatedClauses,
         issues: translatedIssues,
         suggestions: translatedSuggestions,
+        meters: {
+          professionalism: clamp(analysis?.bars?.professionalism),
+          favorability: clamp(analysis?.bars?.favorabilityIndex),
+          deadline: clamp(analysis?.bars?.deadlinePressure),
+          confidence: clamp(analysis?.bars?.confidenceToSign),
+        },
+        analysis: {
+          scoreChecker: {
+            ...translatedScoreChecker,
+            value: clamp(analysis?.scoreChecker?.value ?? 0),
+          },
+        },
+        // Pass static translations for PDF labels
+        staticLabels: staticTranslations,
+      };
+      // pdf-generator exports a class -> must instantiate
+      const pdfGen = new PDFGenerator();
+      await pdfGen.generatePDF("SignSense_Report", pdfData, lang);
+    } catch (err) {
+      console.error("PDF generation error:", err);
+      alert(`Could not generate PDF report: ${err?.message || err}`);
+    }
+    setDownloading(false);
+  };
         meters: {
           professionalism: clamp(analysis?.bars?.professionalism),
           favorability: clamp(analysis?.bars?.favorabilityIndex),

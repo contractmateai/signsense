@@ -12,6 +12,35 @@
   min-width: 300px;
   font-family: inherit;
   animation: fadeIn 0.4s;
+  left: auto;
+  margin: 0 auto;
+}
+
+@media (max-width: 600px) {
+  .cookie-consent-box {
+    left: 50%;
+    right: auto;
+    bottom: 16px;
+    transform: translateX(-50%);
+    min-width: 0;
+    width: 95vw;
+    max-width: 98vw;
+    padding: 16px 10px 12px 10px;
+    border-radius: 18px;
+  }
+  .cookie-buttons {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .cookie-btn {
+    padding: 12px 0;
+    font-size: 1rem;
+  }
+  .cookie-close {
+    top: 10px;
+    right: 10px;
+    font-size: 1.3rem;
+  }
 }
 
 .cookie-consent-box.fade-out {
