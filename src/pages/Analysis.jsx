@@ -303,6 +303,18 @@ const dotColor = {
 };
 
 const Analysis = () => {
+  // ...existing state...
+
+  // Ensure openEmailForm is defined
+  const openEmailForm = () => {
+    if (window.matchMedia("(max-width: 980px)").matches) {
+      setShowEmailInline(true);
+    } else {
+      setShowEmailModal(true);
+    }
+    setEmail("");
+    setEmailError("");
+  };
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [data, setData] = useState(null);
   const [lang, setLang] = useState("en");
