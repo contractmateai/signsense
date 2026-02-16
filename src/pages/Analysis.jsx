@@ -901,20 +901,32 @@ const Analysis = () => {
   verdictDotColor.unsafe;
 
   return (
+
     <>
       <AnalysisDrawer open={drawerOpen} onClose={() => setDrawerOpen(false)} />
-
       <div className="layout">
+        {/* Sidebar for desktop */}
         <AnalysisSidebar />
-
         <main className="main">
           <div className="analysis-header-row">
             <div className="analysis-header-left">
+              {/* Mobile menu button */}
+              <button
+                className="menu-btn"
+                style={{ display: 'inline-flex', marginRight: 12, marginLeft: -4 }}
+                aria-label="Open menu"
+                onClick={() => setDrawerOpen(true)}
+              >
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="10" cy="4" r="1.5" fill="white"/>
+                  <circle cx="10" cy="10" r="1.5" fill="white"/>
+                  <circle cx="10" cy="16" r="1.5" fill="white"/>
+                </svg>
+              </button>
               <span className="analysis-overview-label" id="uiOverview">
                 {ui.overview || "Overview"}
               </span>
             </div>
-
             <div className="analysis-header-right">
               <div className={`lang${langMenuOpen ? " open" : ""}`} id="lang">
                 <button
@@ -956,7 +968,6 @@ const Analysis = () => {
                   )}
                   <span className="caret" aria-hidden="true"></span>
                 </button>
-
                 {langMenuOpen && (
                   <div
                     className="lang-menu"
