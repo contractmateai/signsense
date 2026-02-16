@@ -530,32 +530,6 @@ const Analysis = () => {
       alert(`Could not generate PDF report: ${err?.message || err}`);
     }
     setDownloading(false);
-  };
-        meters: {
-          professionalism: clamp(analysis?.bars?.professionalism),
-          favorability: clamp(analysis?.bars?.favorabilityIndex),
-          deadline: clamp(analysis?.bars?.deadlinePressure),
-          confidence: clamp(analysis?.bars?.confidenceToSign),
-        },
-        analysis: {
-          scoreChecker: {
-            ...translatedScoreChecker,
-            value: clamp(analysis?.scoreChecker?.value ?? 0),
-          },
-        },
-        // Pass static translations for PDF labels
-        staticLabels: staticTranslations,
-      };
-
-      // pdf-generator exports a class -> must instantiate
-      const pdfGen = new PDFGenerator();
-      await pdfGen.generatePDF("SignSense_Report", pdfData, lang);
-    } catch (err) {
-      console.error("PDF generation error:", err);
-      alert(`Could not generate PDF report: ${err?.message || err}`);
-    }
-
-    setDownloading(false);
     closeEmailForm();
   };
 
