@@ -4,11 +4,9 @@ const AnalysisDrawer = ({ open, onClose }) => (
   <>
     <div id="scrim" className={`scrim${open ? ' show' : ''}`} aria-hidden={!open} onClick={onClose}></div>
     <aside id="drawer" className={`drawer${open ? ' open' : ''}`} aria-label="Menu" aria-hidden={!open}>
-      <div className="brand-row">
-        <a href="/" aria-label="Go to homepage">
-          <img src="https://imgur.com/Z5hv7K9.png" alt="SignSense logo" />
-          <span>SignSense</span>
-        </a>
+      <div className="brand-row" style={{ paddingTop: 0, paddingBottom: 8, display: 'flex', alignItems: 'center', gap: 12 }}>
+        <img src="https://imgur.com/Z5hv7K9.png" alt="SignSense logo" style={{ width: 34, height: 34, display: 'inline-block', verticalAlign: 'middle' }} />
+        <span style={{ color: '#fff', fontSize: 26, fontWeight: 400, position: 'relative', top: -2, marginLeft: 6, display: 'inline-block', verticalAlign: 'middle', letterSpacing: 0.5 }}>SignSense</span>
       </div>
       <nav className="nav">
         <a className="active" href="#"><img className="arr" src="https://imgur.com/CHGomYz.png" alt="" /><img className="icon" src="https://imgur.com/lnQTDuo.png" alt="" /><span>Overview</span></a>

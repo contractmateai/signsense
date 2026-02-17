@@ -1072,11 +1072,11 @@ const Analysis = () => {
                 <div
                   className="list"
                   id="summaryText"
-                  style={{ fontSize: "20px" }}
+                  style={{ fontSize: "18px" }}
                 >
                   {tSummary.length > 0 ? (
                     tSummary.map((s, i) => (
-                      <div key={i} style={{ ...mutedStyle, fontSize: "20px" }}>
+                      <div key={i} style={{ ...mutedStyle, fontSize: "18px" }}>
                         {s}
                       </div>
                     ))
@@ -1192,10 +1192,10 @@ const Analysis = () => {
                 <ul
                   className="bullets"
                   id="issuesList"
-                  style={{ fontSize: "20px" }}
+                  style={{ fontSize: "18px" }}
                 >
                   {fallbackArr(tIssues).map((issue, i) => (
-                    <li key={i} style={{ ...mutedStyle, fontSize: "20px" }}>
+                    <li key={i} style={{ ...mutedStyle, fontSize: "18px" }}>
                       {issue}
                     </li>
                   ))}
@@ -1216,11 +1216,11 @@ const Analysis = () => {
                 <div
                   className="list numbered"
                   id="suggestionsList"
-                  style={{ fontSize: "20px" }}
+                  style={{ fontSize: "18px" }}
                 >
                   {tSuggestions.length > 0 ? (
                     tSuggestions.map((s, i) => (
-                      <div key={i} style={{ ...mutedStyle, fontSize: "20px" }}>
+                      <div key={i} style={{ ...mutedStyle, fontSize: "18px" }}>
                         {`${i + 1}. ${s}`}
                       </div>
                     ))
@@ -1385,10 +1385,10 @@ const Analysis = () => {
                 <div
                   className="list numbered"
                   id="clausesList"
-                  style={{ fontSize: "20px" }}
+                  style={{ fontSize: "18px" }}
                 >
                   {fallbackArr(tClauses).map((c, i) => (
-                    <div key={i} style={{ ...mutedStyle, fontSize: "20px" }}>
+                    <div key={i} style={{ ...mutedStyle, fontSize: "18px" }}>
                       {`${i + 1}. ${c}`}
                     </div>
                   ))}
