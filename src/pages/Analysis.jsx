@@ -898,14 +898,13 @@ const Analysis = () => {
               {/* Mobile menu button */}
               <button
                 className="menu-btn"
-                style={{ display: 'inline-flex', marginRight: 12, marginLeft: -4 }}
                 aria-label="Open menu"
                 onClick={() => setDrawerOpen(true)}
               >
-                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <circle cx="10" cy="4" r="1.5" fill="white"/>
-                  <circle cx="10" cy="10" r="1.5" fill="white"/>
-                  <circle cx="10" cy="16" r="1.5" fill="white"/>
+                <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect x="4" y="7" width="18" height="2.5" rx="1.25" fill="#fff"/>
+                  <rect x="4" y="12" width="18" height="2.5" rx="1.25" fill="#fff"/>
+                  <rect x="4" y="17" width="18" height="2.5" rx="1.25" fill="#fff"/>
                 </svg>
               </button>
               <span className="analysis-overview-label" id="uiOverview">
