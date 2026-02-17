@@ -250,7 +250,7 @@ body, .analysis-root {
   stroke-width: 14;
   fill: none;
   stroke-dasharray: 440;
-  /* stroke-dashoffset is set dynamically by React, but default to 431 for 2% arc */
+  /* stroke-dashoffset is set dynamically by React, but  arc */
   stroke-dashoffset: 431;
   filter: blur(0.5px);
   /* stroke is set dynamically by React */
