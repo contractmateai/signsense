@@ -1625,7 +1625,9 @@ const Analysis = () => {
             justifyContent: "center",
             zIndex: 100,
           }}
-          onClick={closeEmailForm}
+          onClick={e => {
+            if (e.target === e.currentTarget) closeEmailForm();
+          }}
         >
           <div
             className="modal-card"
