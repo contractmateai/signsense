@@ -1,3 +1,10 @@
+    // Fix: Add closeEmailForm to allow closing the email popup/modal
+    const closeEmailForm = () => {
+      setShowEmailModal(false);
+      setShowEmailInline(false);
+      setEmail("");
+      setEmailError("");
+    };
   // Fix: Add handleEmailChange for email input
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
@@ -1537,8 +1544,13 @@ const Analysis = () => {
               borderRadius: "14px",
               padding: "10px 12px",
               boxShadow: "0 6px 28px rgba(0,0,0,.28)",
-              position: "absolute",
-              bottom: "70px",
+              position: "fixed",
+              left: 0,
+              right: 0,
+              bottom: 0,
+              margin: "0 auto",
+              zIndex: 200,
+              maxWidth: 400,
             }}
             onSubmit={handleEmailSubmit}
           >
