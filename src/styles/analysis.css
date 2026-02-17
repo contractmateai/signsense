@@ -126,11 +126,9 @@ body, .analysis-root {
   gap: 12px;
   padding-top: 4px;
 }
-.brand img, .brand-row img { width: 34px; height: 34px; }
-.brand a {
-  pointer-events: none;
-  color: #fff !important;
-  text-decoration: none !important;
+.brand img, .brand-row img {
+  width: 34px;
+  height: 34px;
 }
 .brand span {
   color: #fff !important;
