@@ -1625,6 +1625,7 @@ const Analysis = () => {
             justifyContent: "center",
             zIndex: 100,
           }}
+          onClick={closeEmailForm}
         >
           <div
             className="modal-card"
@@ -1635,6 +1636,7 @@ const Analysis = () => {
               padding: "18px",
               width: "min(480px,92vw)",
             }}
+            onClick={e => e.stopPropagation()}
           >
             <h4
               style={{
