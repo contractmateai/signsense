@@ -267,7 +267,7 @@ body, .analysis-root {
 .score-scale { display: flex; justify-content: space-between; font-size: 14px; color: var(--muted); margin-left: 25px; }
 .download-wrap { position: fixed; left: 0; right: 0; bottom: calc(20px + env(safe-area-inset-bottom)); display: none; justify-content: center; z-index: 60; opacity: 0; transform: translateY(8px); }
 .download { background: #f2f9fe; color: #000; border: 1px solid #cfcfcf; border-radius: 16px; padding: 16px 26px; display: inline-flex; gap: 12px; align-items: center; cursor: pointer; font-weight: 400; font-size: 18px; box-shadow: 0 6px 28px rgba(0,0,0,.28); }
-.modal { position: fixed; inset: 0; background: rgba(0,0,0,.6); display: none; align-items: center; justify-content: center; z-index: 100; }
+.modal { position: fixed; inset: 0; background: rgba(0,0,0,.6); display: none; align-items: center; justify-content: center; z-index: 9999; pointer-events: auto; }
 .modal-card { background: #141319; border: 1px solid var(--border); border-radius: 18px; padding: 18px; width: min(480px,92vw); }
 .modal-card h4 { margin: 0 0 10px; font-size: 18px; font-weight: 400; }
 .modal-row { display: flex; gap: 10px; margin-top: 12px; }
@@ -303,7 +303,12 @@ body, .analysis-root {
   .score-bar { height: 26px !important; width: 90% !important; }
   .score-ind { height: 34px; }
   .score-scale { font-size: 16px; }
-  .modal { z-index: 20; }
+  /* .modal { z-index: 20; }  -- removed to prevent z-index override */
+  /* Ensure modal and its children always receive pointer events */
+  .modal-card,
+  .modal-card * {
+    pointer-events: auto;
+  }
   .hcard { gap: 18px !important; }
   .htext { margin-left: 10px !important; padding-left: 0 !important; }
   .status { margin-left: -4px !important; }
