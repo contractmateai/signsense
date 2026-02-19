@@ -908,8 +908,8 @@ const Analysis = () => {
         {/* Sidebar for desktop */}
         <AnalysisSidebar />
         <main className="main">
-          <div className="analysis-header-row">
-            <div className="analysis-header-left">
+          <div className="analysis-header-row" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
               {/* Mobile menu button */}
               <button
                 className="menu-btn"
@@ -927,7 +927,7 @@ const Analysis = () => {
                 {ui.overview || "Overview"}
               </span>
             </div>
-            <div className="analysis-header-right">
+            <div>
               <div className={`lang${langMenuOpen ? " open" : ""}`} id="lang">
                 <button
                   className="lang-btn"
@@ -1553,8 +1553,8 @@ const Analysis = () => {
               borderRadius: "14px",
               padding: "10px 12px",
               boxShadow: "0 6px 28px rgba(0,0,0,.28)",
-              position: "absolute",
-              bottom: "70px",
+              marginTop: 0,
+              position: "static",
             }}
             onSubmit={handleEmailSubmit}
           >
@@ -1584,7 +1584,6 @@ const Analysis = () => {
                   fontSize: "18px",
                 }}
               />
-
               <button
                 className="btn primary"
                 id="emailGo"
@@ -1675,7 +1674,6 @@ const Analysis = () => {
                   fontSize: "18px",
                 }}
               />
-
               <button
                 className="btn primary"
                 id="emailSubmit"
@@ -1691,7 +1689,6 @@ const Analysis = () => {
               >
                 {downloading ? "..." : "Download"}
               </button>
-
               <button
                 className="btn"
                 id="emailCancel"
