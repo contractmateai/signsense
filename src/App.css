@@ -1,3 +1,14 @@
+.menu-toggle .bar{
+  position:absolute; left:0; right:0; height:2px;
+  background:#ffffff; border-radius:2px;
+  transition:transform .2s ease, top .2s ease, opacity .2s ease;
+}
+.menu-toggle .b1{ top:3px; }
+.menu-toggle .b2{ top:11px; }
+.menu-toggle .b3{ top:19px; }
+.menu-toggle.open .b1{ top:11px; transform:rotate(45deg); }
+.menu-toggle.open .b2{ opacity:0; }
+.menu-toggle.open .b3{ top:11px; transform:rotate(-45deg); }
 /* Remove all margin/padding from direct children of .footer-links-group to eliminate any gap */
 .footer-links-group > * {
   margin: 0 !important;

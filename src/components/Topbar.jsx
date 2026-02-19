@@ -6,7 +6,6 @@ const Topbar = forwardRef(({ menuOpen, setMenuOpen }, ref) => {
 
   useEffect(() => {
     let lastY = window.scrollY;
-
     const handleScroll = () => {
       const y = window.scrollY;
       if (y > lastY && y > 80) {
@@ -16,9 +15,7 @@ const Topbar = forwardRef(({ menuOpen, setMenuOpen }, ref) => {
       }
       lastY = y <= 0 ? 0 : y;
     };
-
     window.addEventListener('scroll', handleScroll, { passive: true });
-
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
@@ -58,6 +55,11 @@ const Topbar = forwardRef(({ menuOpen, setMenuOpen }, ref) => {
           <span className="bar b3"></span>
         </button>
       </div>
+    </div>
+  );
+});
+
+export default Topbar;
     </div>
   );
 });
