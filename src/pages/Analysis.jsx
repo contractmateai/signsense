@@ -65,7 +65,7 @@ const STATIC_TRANSLATIONS = {
     unsafe: "Unsicher",
     notThatSafe: "Nicht so sicher",
     safe: "Sicher",
-    verySafe: "Sehr sicher",
+    verySafe: "Zeer sicher",
   },
 
   fr: {
@@ -319,29 +319,29 @@ const Analysis = () => {
   const [isTranslating, setIsTranslating] = useState(false);
 
   // Show/hide download bar based on scroll (like original)
-  useEffect(() => {
-    const handleScroll = () => {
-      const dlWrap = document.getElementById("dlWrap");
-      if (!dlWrap) return;
-
-      const scrolledFromBottom =
-        document.documentElement.scrollHeight -
-        (window.scrollY + window.innerHeight);
-
-      const show = scrolledFromBottom <= 320;
-      dlWrap.style.display = show ? "flex" : "none";
-      dlWrap.style.opacity = show ? 1 : 0;
-    };
-
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    window.addEventListener("resize", handleScroll);
-    setTimeout(handleScroll, 200);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-      window.removeEventListener("resize", handleScroll);
-    };
-  }, []);
+  // useEffect(() => {
+  //   const handleScroll = () => {
+  //     const dlWrap = document.getElementById("dlWrap");
+  //     if (!dlWrap) return;
+  //
+  //     const scrolledFromBottom =
+  //       document.documentElement.scrollHeight -
+  //       (window.scrollY + window.innerHeight);
+  //
+  //     const show = scrolledFromBottom <= 320;
+  //     dlWrap.style.display = show ? "flex" : "none";
+  //     dlWrap.style.opacity = show ? 1 : 0;
+  //   };
+  //
+  //   window.addEventListener("scroll", handleScroll, { passive: true });
+  //   window.addEventListener("resize", handleScroll);
+  //   setTimeout(handleScroll, 200);
+  //
+  //   return () => {
+  //     window.removeEventListener("scroll", handleScroll);
+  //     window.removeEventListener("resize", handleScroll);
+  //   };
+  // }, []);
 
   // Email modal/inline logic
   const isMobile = () => window.matchMedia("(max-width: 980px)").matches;
@@ -928,7 +928,6 @@ const Analysis = () => {
               </span>
             </div>
             <div className="analysis-header-right">
-              {/* Language changer moved to the right */}
               <div className={`lang${langMenuOpen ? " open" : ""}`} id="lang">
                 <button
                   className="lang-btn"

@@ -108,7 +108,8 @@ body, .analysis-root {
   display: flex;
   align-items: center;
   gap: 12px;
-  padding-top: 4px;
+  padding-top: 10px;
+  padding-left: 6px;
 }
 .brand img, .brand-row img { width: 34px; height: 34px; }
 .brand a {
@@ -123,7 +124,8 @@ body, .analysis-root {
   font-size: 24px;
   font-weight: 400;
   position: relative;
-  top: -2px;
+  top: -6px;
+  left: 2px;
 }
 .nav {
   display: flex;
