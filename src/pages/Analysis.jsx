@@ -928,6 +928,7 @@ const Analysis = () => {
               </span>
             </div>
             <div className="analysis-header-right">
+              {/* Language changer moved to the right */}
               <div className={`lang${langMenuOpen ? " open" : ""}`} id="lang">
                 <button
                   className="lang-btn"
