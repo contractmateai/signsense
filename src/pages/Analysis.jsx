@@ -293,7 +293,7 @@ import AnalysisSidebar from "../components/AnalysisSidebar";
 import AnalysisDrawer from "../components/AnalysisDrawer";
 import PDFGenerator from "../utils/PDFGenerator";
 import "../styles/analysis.css";
-import { supabase } from "../supabaseClient";
+// ...existing code...
 
 function clamp(val, min = 0, max = 100) {
   return Math.max(min, Math.min(max, Number(val) || 0));
@@ -374,13 +374,10 @@ const Analysis = () => {
       alert("Please enter your email");
       return;
     }
-    const { error } = await supabase
-      .from("leads")
-      .insert([{ email }]);
-    if (error) {
-      alert("Error saving email");
-      return;
-    }
+    // Supabase removed: just store or process email locally, or send to backend if needed
+    // Example: send email to backend API (optional)
+    // await fetch('/api/save-email', { method: 'POST', body: JSON.stringify({ email }) });
+    // For now, just proceed
   };
   const isMobile = () => window.matchMedia("(max-width: 980px)").matches;
   const handleEmailSubmit = async (e) => {
