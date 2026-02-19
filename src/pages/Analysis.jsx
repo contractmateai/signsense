@@ -349,6 +349,7 @@ const Analysis = () => {
   const openEmailForm = () => {
     if (isMobile()) {
       setShowEmailInline(true);
+      document.getElementById("dlWrap")?.classList.add("hide");
     } else {
       setShowEmailModal(true);
     }
@@ -359,6 +360,7 @@ const Analysis = () => {
   const closeEmailForm = () => {
     setShowEmailModal(false);
     setShowEmailInline(false);
+    document.getElementById("dlWrap")?.classList.remove("hide");
     setEmail("");
     setEmailError("");
   };
