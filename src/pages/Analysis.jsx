@@ -910,12 +910,11 @@ const Analysis = () => {
         {/* Sidebar for desktop */}
         <AnalysisSidebar />
         <main className="main">
-          <div className="analysis-header-row" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+          <div className="analysis-header-row">
+            <div className="analysis-header-left">
               {/* Mobile menu button */}
               <button
                 className="menu-btn"
-                style={{ display: 'inline-flex', marginRight: 12, marginLeft: -4, background: 'transparent', border: 'none', width: 34, height: 24, alignItems: 'center', justifyContent: 'center', padding: 0 }}
                 aria-label="Open menu"
                 onClick={() => setDrawerOpen(true)}
               >
@@ -929,7 +928,7 @@ const Analysis = () => {
                 {ui.overview || "Overview"}
               </span>
             </div>
-            <div>
+            <div className="analysis-header-right">
               <div className={`lang${langMenuOpen ? " open" : ""}`} id="lang">
                 <button
                   className="lang-btn"
@@ -940,10 +939,6 @@ const Analysis = () => {
                   aria-expanded={langMenuOpen}
                   aria-haspopup="listbox"
                   disabled={isTranslating}
-                  style={{
-                    opacity: isTranslating ? 0.6 : 1,
-                    cursor: isTranslating ? "wait" : "pointer",
-                  }}
                 >
                   {isTranslating ? (
                     <div

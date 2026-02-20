@@ -12,6 +12,12 @@
   display: flex;
   align-items: center;
 }
+.analysis-header-right {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex: 1;
+}
 .analysis-overview-label {
   font-size: 22px;
   font-weight: 400;
