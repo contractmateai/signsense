@@ -1513,100 +1513,124 @@ const Analysis = () => {
           opacity: 1,
         }}
       >
-        <button
-          className="download"
-          id="downloadBtn"
-          onClick={openEmailForm}
-          style={{
-            background: "#f2f9fe",
-            color: "#000",
-            border: "1px solid #cfcfcf",
-            borderRadius: "16px",
-            padding: "16px 26px",
-            display: "inline-flex",
-            gap: "12px",
-            alignItems: "center",
-            cursor: "pointer",
-            fontWeight: 400,
-            fontSize: "18px",
-            boxShadow: "0 6px 28px rgba(0,0,0,.28)",
-          }}
-        >
-          Download Report
-        </button>
-
-        {showEmailInline && (
-          <form
-            id="emailInline"
-            className="email-inline"
-            noValidate
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              gap: "8px",
-              width: "min(92vw,340px)",
-              background: "#141319",
-              border: "1px solid var(--border)",
-              borderRadius: "14px",
-              padding: "10px 12px",
-              boxShadow: "0 6px 28px rgba(0,0,0,.28)",
-              marginTop: 0,
-              position: "static",
-            }}
-            onSubmit={handleEmailSubmit}
-          >
-            <div className="email-title">Insert email to download</div>
-
-            <div
-              className="email-row"
-              style={{ display: "flex", alignItems: "center", gap: "8px" }}
+        {/* On mobile: show either the button or the email form in the same spot */}
+        {isMobile() ? (
+          showEmailInline ? (
+            <form
+              id="emailInline"
+              className="email-inline"
+              noValidate
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                gap: "8px",
+                width: "min(92vw,340px)",
+                background: "#141319",
+                border: "1px solid var(--border)",
+                borderRadius: "14px",
+                padding: "10px 12px",
+                boxShadow: "0 6px 28px rgba(0,0,0,.28)",
+                marginTop: 0,
+                position: "static",
+              }}
+              onSubmit={handleEmailSubmit}
             >
-              <input
-                id="emailInputInline"
-                className="input"
-                type="email"
-                inputMode="email"
-                placeholder="you@example.com"
-                value={email}
-                onChange={handleEmailChange}
-                style={{
-                  flex: 1,
-                  background: "#0f0e14",
-                  border: "1px solid #5a5a5a",
-                  borderRadius: "10px",
-                  padding: "10px 12px",
-                  color: "#fff",
-                  fontFamily: "Inter, sans-serif",
-                  fontWeight: 400,
-                  fontSize: "18px",
-                }}
-              />
-              <button
-                className="btn primary"
-                id="emailGo"
-                type="submit"
-                disabled={downloading}
-                style={{
-                  padding: "7px 8px",
-                  borderRadius: "8px",
-                  fontSize: "15px",
-                  fontWeight: 500,
-                }}
-              >
-                {downloading ? "..." : "Done"}
-              </button>
-            </div>
-
-            {emailError && (
+              <div className="email-title">Insert email to download</div>
               <div
-                id="emailErrInline"
-                className="email-err"
-                style={{ color: "#ff6b6b", fontSize: "13px", display: "block" }}
+                className="email-row"
+                style={{ display: "flex", alignItems: "center", gap: "8px" }}
               >
-                {emailError}
+                <input
+                  id="emailInputInline"
+                  className="input"
+                  type="email"
+                  inputMode="email"
+                  placeholder="you@example.com"
+                  value={email}
+                  onChange={handleEmailChange}
+                  style={{
+                    flex: 1,
+                    background: "#0f0e14",
+                    border: "1px solid #5a5a5a",
+                    borderRadius: "10px",
+                    padding: "10px 12px",
+                    color: "#fff",
+                    fontFamily: "Inter, sans-serif",
+                    fontWeight: 400,
+                    fontSize: "18px",
+                  }}
+                />
+                <button
+                  className="btn primary"
+                  id="emailGo"
+                  type="submit"
+                  disabled={downloading}
+                  style={{
+                    padding: "7px 8px",
+                    borderRadius: "8px",
+                    fontSize: "15px",
+                    fontWeight: 500,
+                  }}
+                >
+                  {downloading ? "..." : "Done"}
+                </button>
               </div>
-            )}
-          </form>
+              {emailError && (
+                <div
+                  id="emailErrInline"
+                  className="email-err"
+                  style={{ color: "#ff6b6b", fontSize: "13px", display: "block" }}
+                >
+                  {emailError}
+                </div>
+              )}
+            </form>
+          ) : (
+            <button
+              className="download"
+              id="downloadBtn"
+              onClick={openEmailForm}
+              style={{
+                background: "#f2f9fe",
+                color: "#000",
+                border: "1px solid #cfcfcf",
+                borderRadius: "16px",
+                padding: "16px 26px",
+                display: "inline-flex",
+                gap: "12px",
+                alignItems: "center",
+                cursor: "pointer",
+                fontWeight: 400,
+                fontSize: "18px",
+                boxShadow: "0 6px 28px rgba(0,0,0,.28)",
+              }}
+            >
+              Download Report
+            </button>
+          )
+        ) : (
+          // Desktop: always show button, email form is modal
+          <button
+            className="download"
+            id="downloadBtn"
+            onClick={openEmailForm}
+            style={{
+              background: "#f2f9fe",
+              color: "#000",
+              border: "1px solid #cfcfcf",
+              borderRadius: "16px",
+              padding: "16px 26px",
+              display: "inline-flex",
+              gap: "12px",
+              alignItems: "center",
+              cursor: "pointer",
+              fontWeight: 400,
+              fontSize: "18px",
+              boxShadow: "0 6px 28px rgba(0,0,0,.28)",
+            }}
+          >
+            Download Report
+          </button>
         )}
       </div>
 
