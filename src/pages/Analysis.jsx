@@ -1,9 +1,9 @@
-// Workspace touch: force clean build after full reinstall
-// Workspace touch: force clean build
-// Workspace touch: commit trigger for reset
-// Workspace touch: repush trigger
-// Workspace touch: harmless change for commit
-// Static translations for all supported languages
+/**
+ * Analysis Page Component
+ * Uses centralized data transformer for consistent UI and PDF rendering
+ */
+
+// Use centralized translations - alias for backward compatibility
 const STATIC_TRANSLATIONS = {
   en: {
     summary: "Summary",
@@ -65,7 +65,7 @@ const STATIC_TRANSLATIONS = {
     unsafe: "Unsicher",
     notThatSafe: "Nicht so sicher",
     safe: "Sicher",
-    verySafe: "Zeer sicher",
+    verySafe: "Sehr sicher",
   },
 
   fr: {
@@ -258,33 +258,32 @@ const STATIC_TRANSLATIONS = {
   },
 };
 
-// Helper for risk verdict color and label
+// Import React and utilities
 import React, { useState, useEffect, useRef } from "react";
-
-// Helper for risk verdict color and label
-function riskVerdictKey(val) {
-  const v = clamp(val);
-  if (v <= 29) return "very_safe";
-  if (v <= 62) return "not_safe";
-  return "unsafe";
-}
-
-// Helper for clarity verdict color and label
-function clarityVerdictKey(val) {
-  const v = clamp(val);
-  if (v >= 63) return "very_safe";
-  if (v >= 30) return "not_safe";
-  return "unsafe";
-}
-
 import AnalysisSidebar from "../components/AnalysisSidebar";
 import AnalysisDrawer from "../components/AnalysisDrawer";
 import PDFGenerator from "../utils/PDFGenerator";
+import {
+  clamp,
+  getRiskVerdictKey,
+  getClarityVerdictKey,
+  verdictToTranslationKey,
+  getColorVar,
+  normalizeList,
+  getTranslations,
+  getLabel,
+  transformAnalysisData,
+  transformForPDF,
+} from "../utils/analysisDataTransformer";
+import { TRANSLATIONS } from "../utils/translations";
 import "../styles/analysis.css";
 
-function clamp(val, min = 0, max = 100) {
-  return Math.max(min, Math.min(max, Number(val) || 0));
-}
+// Note: STATIC_TRANSLATIONS above is kept for backward compatibility
+// but should eventually be replaced with TRANSLATIONS from centralized module
+
+// Alias for backward compatibility - use centralized functions
+const riskVerdictKey = getRiskVerdictKey;
+const clarityVerdictKey = getClarityVerdictKey;
 
 const bandColor = {
   green: "var(--green)",
@@ -385,177 +384,17 @@ const Analysis = () => {
     setDownloading(true);
 
     try {
-      // Get original analysis data
-      const analysis = data?.analysis || {};
+      // Use centralized transformer for consistent data between UI and PDF
+      const transformedData = transformAnalysisData({
+        rawData: data,
+        lang,
+        cachedTranslation: translationCache[lang] || {},
+      });
 
-      // Use cached translation if available for the selected language
-      const cachedTranslation = translationCache[lang] || {};
+      // Convert to PDF-specific format
+      const pdfData = transformForPDF(transformedData);
 
-      // Fallback to API translations (though they're usually empty)
-      const apiTranslation =
-        data?.translations?.[lang]?.analysis ||
-        data?.translations?.[String(lang || "").toUpperCase()]?.analysis ||
-        {};
-
-      // Get translated arrays - prioritize cache, then API, then original
-      const translatedSummary =
-        Array.isArray(cachedTranslation.summary) &&
-        cachedTranslation.summary.length
-          ? cachedTranslation.summary
-          : Array.isArray(apiTranslation.summary) &&
-              apiTranslation.summary.length
-            ? apiTranslation.summary
-            : Array.isArray(analysis.summary) && analysis.summary.length
-              ? analysis.summary
-              : [];
-
-      const translatedIssues =
-        Array.isArray(cachedTranslation.potentialIssues) &&
-        cachedTranslation.potentialIssues.length
-          ? cachedTranslation.potentialIssues
-          : Array.isArray(apiTranslation.potentialIssues) &&
-              apiTranslation.potentialIssues.length
-            ? apiTranslation.potentialIssues
-            : Array.isArray(analysis.potentialIssues) &&
-                analysis.potentialIssues.length
-              ? analysis.potentialIssues
-              : [];
-
-      const translatedSuggestions =
-        Array.isArray(cachedTranslation.smartSuggestions) &&
-        cachedTranslation.smartSuggestions.length
-          ? cachedTranslation.smartSuggestions
-          : Array.isArray(apiTranslation.smartSuggestions) &&
-              apiTranslation.smartSuggestions.length
-            ? apiTranslation.smartSuggestions
-            : Array.isArray(analysis.smartSuggestions) &&
-                analysis.smartSuggestions.length
-              ? analysis.smartSuggestions
-              : [];
-
-      const translatedClauses =
-        Array.isArray(cachedTranslation.mainClauses) &&
-        cachedTranslation.mainClauses.length
-          ? cachedTranslation.mainClauses
-          : Array.isArray(apiTranslation.mainClauses) &&
-              apiTranslation.mainClauses.length
-            ? apiTranslation.mainClauses
-            : Array.isArray(analysis.mainClauses) && analysis.mainClauses.length
-              ? analysis.mainClauses
-              : [];
-
-      // Get translated notes
-      const translatedRiskNote =
-        cachedTranslation.riskNote ||
-        apiTranslation.risk?.note ||
-        analysis.risk?.note ||
-        "";
-
-      const translatedClarityNote =
-        cachedTranslation.clarityNote ||
-        apiTranslation.clarity?.note ||
-        analysis.clarity?.note ||
-        "";
-
-      const translatedScoreLine =
-        cachedTranslation.scoreLine ||
-        apiTranslation.scoreChecker?.line ||
-        analysis.scoreChecker?.line ||
-        "";
-
-      // Get static translated notes for consistent UI/PDF display
-      const staticTranslations =
-        STATIC_TRANSLATIONS[lang] || STATIC_TRANSLATIONS.en;
-      const pdfStaticRiskNote = staticTranslations.riskStatic;
-      const pdfStaticClarityNote = staticTranslations.clarityStatic;
-      const pdfStaticScoreNote = staticTranslations.scoreStatic;
-
-      // Calculate verdicts using same logic as UI display
-      const riskValue = analysis.risk?.value || 0;
-      const clarityValue = analysis.clarity?.value || 0;
-      const scoreValue = analysis.scoreChecker?.value || 0;
-
-      // Risk verdict: lower is better (0-29 = very safe, 30-62 = not safe, 63+ = unsafe)
-      const riskVerdict =
-        riskValue <= 29
-          ? "verySafe"
-          : riskValue <= 62
-            ? "notThatSafe"
-            : "unsafe";
-      // Clarity verdict: higher is better (63+ = very safe, 30-62 = not safe, 0-29 = unsafe)
-      const clarityVerdict =
-        clarityValue >= 63
-          ? "verySafe"
-          : clarityValue >= 30
-            ? "notThatSafe"
-            : "unsafe";
-      // Score verdict: higher is better (same as clarity)
-      const scoreVerdict =
-        scoreValue >= 63
-          ? "verySafe"
-          : scoreValue >= 30
-            ? "notThatSafe"
-            : "unsafe";
-
-      // Build translated risk/clarity/score objects with calculated verdicts
-      const translatedRisk = {
-        value: riskValue,
-        note: pdfStaticRiskNote,
-        safety: staticTranslations[riskVerdict] || staticTranslations.unsafe,
-        band: analysis.risk?.band || "green",
-      };
-
-      const translatedClarity = {
-        value: clarityValue,
-        note: pdfStaticClarityNote,
-        safety: staticTranslations[clarityVerdict] || staticTranslations.unsafe,
-        band: analysis.clarity?.band || "green",
-      };
-
-      const translatedScoreChecker = {
-        value: scoreValue,
-        line: pdfStaticScoreNote,
-        safety: staticTranslations[scoreVerdict] || staticTranslations.safe,
-        band: analysis.scoreChecker?.band || "green",
-        verdict: analysis.scoreChecker?.verdict || "safe",
-      };
-
-      // Get translated title
-      const translatedTitle =
-        cachedTranslation.contractTitle ||
-        apiTranslation.contractTitle ||
-        data.contractTitle ||
-        data.contractName ||
-        "Contract";
-
-      // Map API response structure to PDF generator expectations with translated content
-      // IMPORTANT: These values MUST match exactly what is displayed in the UI
-      // Use clamp() to ensure 0-100 range, same as UI display
-      const pdfData = {
-        title: translatedTitle,
-        summary: translatedSummary,
-        risk: translatedRisk,
-        clarity: translatedClarity,
-        clauses: translatedClauses,
-        issues: translatedIssues,
-        suggestions: translatedSuggestions,
-        meters: {
-          professionalism: clamp(analysis?.bars?.professionalism),
-          favorability: clamp(analysis?.bars?.favorabilityIndex),
-          deadline: clamp(analysis?.bars?.deadlinePressure),
-          confidence: clamp(analysis?.bars?.confidenceToSign),
-        },
-        analysis: {
-          scoreChecker: {
-            ...translatedScoreChecker,
-            value: clamp(analysis?.scoreChecker?.value ?? 0),
-          },
-        },
-        // Pass static translations for PDF labels
-        staticLabels: staticTranslations,
-      };
-
-      // pdf-generator exports a class -> must instantiate
+      // Generate PDF
       const pdfGen = new PDFGenerator();
       await pdfGen.generatePDF("SignSense_Report", pdfData, lang);
     } catch (err) {
@@ -581,7 +420,7 @@ const Analysis = () => {
         const parsed = JSON.parse(raw);
         setData(parsed);
         setLang(parsed.targetLang || parsed.detectedLang || "en");
-      } catch {}
+      } catch { }
     }
   }, []);
 
@@ -750,111 +589,32 @@ const Analysis = () => {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, [langMenuOpen]);
 
-  // Helper for translation fields
-  const baseUI = data?.ui || {};
-  const tr =
-    data?.translations?.[lang] ||
-    data?.translations?.[String(lang || "").toUpperCase()] ||
-    {};
+  // Use centralized transformer for consistent UI/PDF data
+  const transformedData = transformAnalysisData({
+    rawData: data,
+    lang,
+    cachedTranslation: translationCache[lang] || {},
+  });
 
-  const staticTr = STATIC_TRANSLATIONS[lang] || STATIC_TRANSLATIONS.en;
-  const ui = tr.ui || tr.UI || tr.labels || tr.strings || tr.text || baseUI;
-
-  // ALWAYS pull box titles + static lines from STATIC_TRANSLATIONS first
-  const tLabel = (k, fallback) => staticTr?.[k] || ui?.[k] || fallback;
-  // Map verdict string to translation key
-  const verdictToTrKey = (v) =>
-    v === "very_safe"
-      ? "verySafe"
-      : v === "not_safe"
-        ? "notThatSafe"
-        : "unsafe";
-
-  // translated dynamic arrays (fallback to original if missing)
+  // Extract values from transformed data for UI rendering
   const analysis = data?.analysis || {};
+  const staticTr = transformedData.labels;
 
-  // Use cached translation if available, otherwise use API response or original
-  const cachedTranslation = translationCache[lang] || {};
-  const tAnalysis = cachedTranslation || tr.analysis || {};
+  // Helper to get translated labels (uses centralized translations)
+  const tLabel = (k, fallback) => getLabel(lang, k, fallback);
 
-  // Prefer translated AI-generated notes/lines, fallback to static translation
-  const tRiskNote =
-    tAnalysis.risk?.note ||
-    tr.riskNote ||
-    analysis.risk?.note ||
-    staticTr?.riskStatic ||
-    STATIC_TRANSLATIONS.en.riskStatic;
-  const tClarityNote =
-    tAnalysis.clarity?.note ||
-    tr.clarityNote ||
-    analysis.clarity?.note ||
-    staticTr?.clarityStatic ||
-    STATIC_TRANSLATIONS.en.clarityStatic;
-  const tScoreLine =
-    tAnalysis.scoreChecker?.line ||
-    tr.scoreLine ||
-    analysis.scoreChecker?.line ||
-    staticTr?.scoreStatic ||
-    STATIC_TRANSLATIONS.en.scoreStatic;
+  // Map verdict string to translation key (use centralized function)
+  const verdictToTrKey = verdictToTranslationKey;
 
-  // Robust fallback for summary: try all possible fields, prefer arrays, fallback to string split
-  function getSummaryArr() {
-    const candidates = [
-      tAnalysis.summary,
-      tr.summary,
-      analysis.summary,
-      analysis.summaryText,
-      analysis.summaryLines,
-    ];
-    for (const c of candidates) {
-      if (Array.isArray(c) && c.length) return c;
-      if (typeof c === "string" && c.trim())
-        return c
-          .split(/\r?\n|•|- /g)
-          .map((s) => s.trim())
-          .filter(Boolean);
-    }
-    return [];
-  }
-  // Use translated arrays with proper fallback to original English
-  const tSummary =
-    Array.isArray(tAnalysis.summary) && tAnalysis.summary.length
-      ? tAnalysis.summary
-      : Array.isArray(analysis.summary) && analysis.summary.length
-        ? analysis.summary
-        : [];
-
-  const tIssues =
-    Array.isArray(tAnalysis.potentialIssues) && tAnalysis.potentialIssues.length
-      ? tAnalysis.potentialIssues
-      : Array.isArray(analysis.potentialIssues) &&
-          analysis.potentialIssues.length
-        ? analysis.potentialIssues
-        : ["—"];
-
-  const tSuggestions =
-    Array.isArray(tAnalysis.smartSuggestions) &&
-    tAnalysis.smartSuggestions.length
-      ? tAnalysis.smartSuggestions
-      : Array.isArray(analysis.smartSuggestions) &&
-          analysis.smartSuggestions.length
-        ? analysis.smartSuggestions
-        : [];
-
-  const tClauses =
-    Array.isArray(tAnalysis.mainClauses) && tAnalysis.mainClauses.length
-      ? tAnalysis.mainClauses
-      : Array.isArray(analysis.mainClauses) && analysis.mainClauses.length
-        ? analysis.mainClauses
-        : ["—"];
-
-  // translated title (fallback to original)
-  const tTitle =
-    tAnalysis.contractTitle ??
-    tr.contractTitle ??
-    data?.contractTitle ??
-    data?.contractName ??
-    "—";
+  // Translated content from centralized transformer
+  const tRiskNote = transformedData.risk.note;
+  const tClarityNote = transformedData.clarity.note;
+  const tScoreLine = transformedData.score.line;
+  const tSummary = transformedData.summary;
+  const tIssues = transformedData.potentialIssues;
+  const tSuggestions = transformedData.smartSuggestions;
+  const tClauses = transformedData.mainClauses;
+  const tTitle = transformedData.title;
 
   // Use static muted color for all explanations
   const mutedStyle = { color: "var(--muted)", fontSize: 15 };
@@ -866,40 +626,12 @@ const Analysis = () => {
     verysafe: "var(--green)",
   };
 
-  // Helper to always show fallback/defaults for boxes
-  function normalizeList(v) {
-    if (Array.isArray(v))
-      return v
-        .filter(Boolean)
-        .map((x) => String(x).trim())
-        .filter(Boolean);
-
-    if (typeof v === "string") {
-      return v
-        .split(/\r?\n|•|- /g)
-        .map((s) => String(s).trim())
-        .filter(Boolean);
-    }
-
-    // sometimes API sends { items: [...] }
-    if (v && typeof v === "object") {
-      const maybe = v.items || v.list || v.values;
-      if (Array.isArray(maybe))
-        return maybe
-          .filter(Boolean)
-          .map((x) => String(x).trim())
-          .filter(Boolean);
-    }
-
-    return [];
-  }
-
+  // Use imported normalizeList from centralized transformer
   function fallbackArr(v) {
     return normalizeList(v);
   }
 
   // Prevent unused warnings (kept)
-  getSummaryArr();
   verdictDotColor.unsafe;
 
   return (
@@ -919,13 +651,13 @@ const Analysis = () => {
                 onClick={() => setDrawerOpen(true)}
               >
                 <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <rect x="4" y="7" width="18" height="2.5" rx="1.25" fill="#fff"/>
-                  <rect x="4" y="12" width="18" height="2.5" rx="1.25" fill="#fff"/>
-                  <rect x="4" y="17" width="18" height="2.5" rx="1.25" fill="#fff"/>
+                  <rect x="4" y="7" width="18" height="2.5" rx="1.25" fill="#fff" />
+                  <rect x="4" y="12" width="18" height="2.5" rx="1.25" fill="#fff" />
+                  <rect x="4" y="17" width="18" height="2.5" rx="1.25" fill="#fff" />
                 </svg>
               </button>
               <span className="analysis-overview-label" id="uiOverview">
-                {ui.overview || "Overview"}
+                {"Overview"}
               </span>
             </div>
             <div className="analysis-header-right">
@@ -1057,7 +789,7 @@ const Analysis = () => {
 
           <div className="doc-title">
             <span className="label" id="uiTitleLabel">
-              {ui.title || "Title:"}
+              {tLabel("title", "Title:")}
             </span>
             <span className="value" id="uiTitleValue">
               {" "}
@@ -1287,10 +1019,10 @@ const Analysis = () => {
                         style={{
                           background:
                             riskVerdictKey(clamp(analysis.risk?.value)) ===
-                            "unsafe"
+                              "unsafe"
                               ? "var(--red)"
                               : riskVerdictKey(clamp(analysis.risk?.value)) ===
-                                  "not_safe"
+                                "not_safe"
                                 ? "var(--orange)"
                                 : "var(--green)",
                         }}
@@ -1359,10 +1091,10 @@ const Analysis = () => {
                         style={{
                           background:
                             clarityVerdictKey(analysis?.clarity?.value) ===
-                            "unsafe"
+                              "unsafe"
                               ? "var(--red)"
                               : clarityVerdictKey(analysis?.clarity?.value) ===
-                                  "not_safe"
+                                "not_safe"
                                 ? "var(--orange)"
                                 : "var(--green)",
                         }}

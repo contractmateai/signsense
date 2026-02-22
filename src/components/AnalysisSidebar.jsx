@@ -1,12 +1,10 @@
 import React from "react";
+import BrandLogo from "./BrandLogo";
 
 const AnalysisSidebar = () => (
   <aside className="sidebar">
     <div className="brand">
-      <a href="/" aria-label="Go to homepage">
-        <img src="https://imgur.com/Z5hv7K9.png" alt="SignSense logo" />
-        <span>SignSense</span>
-      </a>
+      <BrandLogo />
     </div>
     <nav className="nav">
       <a className="active" href="#"><img className="arr" src="https://imgur.com/CHGomYz.png" alt="" /><img className="icon" src="https://imgur.com/lnQTDuo.png" alt="" /><span>Overview</span></a>
