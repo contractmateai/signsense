@@ -21,11 +21,12 @@ app.use(express.text({ limit: "5mb" }));
 // Health check endpoint
 app.get("/health", (req, res) =>
   res.json({ status: "ok", timestamp: new Date().toISOString() }),
+  //test
 );
 
 // Analyze endpoint with timeout
 app.post("/api/analyze", (req, res) => {
-  // Set response timeout to 60 seconds (OpenAI can be slow)
+  // Set response timeout to 60 seconds(OpenAI can be slow)
   req.setTimeout(60000);
   res.setTimeout(60000);
 

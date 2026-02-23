@@ -1,14 +1,12 @@
 import React from "react";
+import BrandLogo from "./BrandLogo";
 
 const AnalysisDrawer = ({ open, onClose }) => (
   <>
     <div id="scrim" className={`scrim${open ? ' show' : ''}`} aria-hidden={!open} onClick={onClose}></div>
     <aside id="drawer" className={`drawer${open ? ' open' : ''}`} aria-label="Menu" aria-hidden={!open}>
       <div className="brand-row">
-        <a href="/" aria-label="Go to homepage" style={{ textDecoration: 'none', color: '#fff' }}>
-          <img src="https://imgur.com/Z5hv7K9.png" alt="SignSense logo" />
-          <span style={{ color: '#fff', fontSize: '24px', fontWeight: 400, letterSpacing: '0.5px', position: 'relative', top: '-2px' }}>SignSense</span>
-        </a>
+        <BrandLogo />
       </div>
       <nav className="nav">
         <a className="active" href="#"><img className="arr" src="https://imgur.com/CHGomYz.png" alt="" /><img className="icon" src="https://imgur.com/lnQTDuo.png" alt="" /><span>Overview</span></a>
