@@ -65,7 +65,7 @@ const STATIC_TRANSLATIONS = {
     unsafe: "Unsicher",
     notThatSafe: "Nicht so sicher",
     safe: "Sicher",
-    verySafe: "Sehr sicher",
+    verySafe: "Zeer sicher",
   },
 
   fr: {
