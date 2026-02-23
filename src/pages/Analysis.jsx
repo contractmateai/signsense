@@ -1513,29 +1513,8 @@ const Analysis = () => {
           opacity: 1,
         }}
       >
-        <button
-          className="download"
-          id="downloadBtn"
-          onClick={openEmailForm}
-          style={{
-            background: "#f2f9fe",
-            color: "#000",
-            border: "1px solid #cfcfcf",
-            borderRadius: "16px",
-            padding: "16px 26px",
-            display: "inline-flex",
-            gap: "12px",
-            alignItems: "center",
-            cursor: "pointer",
-            fontWeight: 400,
-            fontSize: "18px",
-            boxShadow: "0 6px 28px rgba(0,0,0,.28)",
-          }}
-        >
-          Download Report
-        </button>
-
-        {showEmailInline && (
+        {/* On mobile: show either the button or the email form in the same spot, never both */}
+        {isMobile() && showEmailInline ? (
           <form
             id="emailInline"
             className="email-inline"
@@ -1556,7 +1535,6 @@ const Analysis = () => {
             onSubmit={handleEmailSubmit}
           >
             <div className="email-title">Insert email to download</div>
-
             <div
               className="email-row"
               style={{ display: "flex", alignItems: "center", gap: "8px" }}
@@ -1596,7 +1574,6 @@ const Analysis = () => {
                 {downloading ? "..." : "Done"}
               </button>
             </div>
-
             {emailError && (
               <div
                 id="emailErrInline"
@@ -1607,6 +1584,28 @@ const Analysis = () => {
               </div>
             )}
           </form>
+        ) : (
+          <button
+            className="download"
+            id="downloadBtn"
+            onClick={openEmailForm}
+            style={{
+              background: "#f2f9fe",
+              color: "#000",
+              border: "1px solid #cfcfcf",
+              borderRadius: "16px",
+              padding: "16px 26px",
+              display: "inline-flex",
+              gap: "12px",
+              alignItems: "center",
+              cursor: "pointer",
+              fontWeight: 400,
+              fontSize: "18px",
+              boxShadow: "0 6px 28px rgba(0,0,0,.28)",
+            }}
+          >
+            Download Report
+          </button>
         )}
       </div>
 
