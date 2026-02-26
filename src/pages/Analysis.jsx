@@ -65,7 +65,7 @@ const STATIC_TRANSLATIONS = {
     unsafe: "Unsicher",
     notThatSafe: "Nicht so sicher",
     safe: "Sicher",
-    verySafe: "Zeer sicher",
+    verySafe: "Sehr sicher",
   },
 
   fr: {
@@ -382,6 +382,13 @@ const Analysis = () => {
 
     setEmailError("");
     setDownloading(true);
+
+    // Mailchimp API call
+    await fetch("/api/mailchimp", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ email }),
+    });
 
     try {
       // Use centralized transformer for consistent data between UI and PDF
