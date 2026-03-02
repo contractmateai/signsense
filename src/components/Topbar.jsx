@@ -28,14 +28,14 @@ const Topbar = forwardRef(({ menuOpen, setMenuOpen }, ref) => {
     <div className={`topbar-wrap ${hide ? 'hide' : ''}`} ref={ref}>
       <div className={`topbar ${menuOpen ? 'merged' : ''}`}>
         <div className="topbar-left">
-          <a href="index.html">
+          <a href="/">
             <img
               className="topbar-logo"
               src="https://imgur.com/t8UWYN3.png"
               alt="SignSense logo"
             />
           </a>
-          <a href="index.html" className="topbar-brand">
+          <a href="/" className="topbar-brand">
             SignSense
           </a>
         </div>
@@ -44,7 +44,7 @@ const Topbar = forwardRef(({ menuOpen, setMenuOpen }, ref) => {
           <a href="https://youtube.com" target="_blank" rel="noopener noreferrer">
             See How It Works
           </a>
-          <a href="index.html">Home</a>
+          <a href="/">Home</a>
           <a href="/contact">Contact</a>
         </nav>
 

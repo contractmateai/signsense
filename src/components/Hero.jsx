@@ -83,7 +83,7 @@ const Hero = ({
         <div className="yt-wrap show-on-mobile">
           <div className="yt-box">
             <iframe
-              src="https://www.youtube.com/embed/dQw4w9WgXcQ?rel=0"
+              src="https://www.youtube.com/embed/jpMGv9ffqts?si=cY0_Ez-stxcMPQ6F"
               title="SignSense demo video"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               allowFullScreen

@@ -14,6 +14,19 @@
   animation: fadeIn 0.4s;
 }
 
+@media (max-width: 600px) {
+  .cookie-consent-box {
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 95vw;
+    min-width: 0;
+    border-radius: 18px;
+    padding: 16px 8vw 12px 8vw;
+  }
+}
+
 .cookie-consent-box.fade-out {
   animation: fadeOut 0.3s forwards;
 }

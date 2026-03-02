@@ -184,7 +184,7 @@ const Privacy = () => {
         <h2>9) Changes to This Policy</h2>
         <p>We may update this Privacy Policy from time to time. Any changes will be posted on this page with an updated effective date.</p>
         <h2>10) Contact Us</h2>
-        <p>If you have questions about this Privacy Policy or how we handle your data, please contact us:<br/>Email: [Insert Contact Email]</p>
+        <p>If you have questions about this Privacy Policy or how we handle your data, please contact us:<br/>Email: support@signsense.io</p>
       </div>
       {/* READY SECTION */}
       <section className="ready-section" data-reveal>

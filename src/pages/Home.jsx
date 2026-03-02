@@ -896,14 +896,14 @@ export default function Home() {
       <div className="topbar-wrap" id="topbarWrap" ref={topbarWrapRef}>
         <div className="topbar" id="topbar" ref={topbarRef}>
           <div className="topbar-left">
-            <a href="index.html">
+            <a href="/">
               <img
                 className="topbar-logo"
                 src="https://imgur.com/t8UWYN3.png"
                 alt="SignSense logo"
               />
             </a>
-            <a href="index.html" className="topbar-brand">
+            <a href="/" className="topbar-brand">
               SignSense
             </a>
           </div>
@@ -916,7 +916,7 @@ export default function Home() {
             >
               See How It Works
             </a>
-            <a href="index.html">Home</a>
+            <a href="/">Home</a>
             <a href="/contact">Contact</a>
           </nav>
 
@@ -950,7 +950,7 @@ export default function Home() {
           >
             See How It Works <span className="chev">›</span>
           </a>
-          <a className="menu-item" href="index.html">
+          <a className="menu-item" href="/">
             Home <span className="chev">›</span>
           </a>
           <a className="menu-item" href="/contact">
@@ -1442,7 +1442,7 @@ export default function Home() {
       <div className="site-footer-wrap desktop-only">
         <footer className="site-footer desktop-only">
           <div className="footer-left">
-            <a href="index.html">
+            <a href="/">
               <img
                 className="footer-logo"
                 src="https://imgur.com/BcUqgKZ.png"
@@ -1450,7 +1450,7 @@ export default function Home() {
               />
             </a>
             <div className="footer-left-inner">
-              <a href="index.html" className="footer-brand">
+              <a href="/" className="footer-brand">
                 SignSense
               </a>
               <div className="footer-tagline">
@@ -1484,7 +1484,7 @@ export default function Home() {
             <div className="footer-title">Information</div>
             <nav className="footer-links">
               <a href="/contact">Contact</a>
-              <a href="index.html">Home</a>
+              <a href="/">Home</a>
             </nav>
           </div>
 

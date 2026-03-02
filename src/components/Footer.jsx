@@ -6,7 +6,7 @@ const Footer = () => {
     <div className="site-footer-wrap desktop-only">
       <footer className="site-footer desktop-only">
         <div className="footer-left">
-          <a href="index.html">
+          <a href="/">
             <img
               className="footer-logo"
               src="https://imgur.com/BcUqgKZ.png"
@@ -15,21 +15,21 @@ const Footer = () => {
           </a>
 
           <div className="footer-left-inner">
-            <a href="index.html" className="footer-brand">
+            <a href="/" className="footer-brand">
               SignSense
             </a>
             <div className="footer-tagline">
               <div>No confusion, no legal jargon.</div>
               <div>For informational use only. Not legal advice.</div>
             </div>
-          </div>
+                href="https://youtube.com/@signsense2026?si=Mme3MOiXLO3Cn8Kx"
         </div>
 
         <div className="footer-col">
           <div className="footer-title">Quick Menu</div>
           <nav className="footer-links">
             <a
-              href="https://youtube.com"
+                href="https://x.com/signsense2026?s=21"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -49,7 +49,7 @@ const Footer = () => {
           <div className="footer-title">Information</div>
           <nav className="footer-links">
             <a href="contact.html">Contact</a>
-            <a href="index.html">Home</a>
+            <a href="/">Home</a>
           </nav>
         </div>
 
