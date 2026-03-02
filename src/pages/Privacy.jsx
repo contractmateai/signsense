@@ -96,14 +96,14 @@ const Privacy = () => {
       <div className="topbar-wrap" id="topbarWrap">
         <div className="topbar" id="topbar">
           <div className="topbar-left">
-            <a href="/">
+            <a href="https://signsense.io" target="_blank" rel="noopener noreferrer">
               <img className="topbar-logo" src="https://imgur.com/t8UWYN3.png" alt="SignSense logo" />
             </a>
-            <a href="/" className="topbar-brand">SignSense</a>
+            <a href="https://signsense.io" className="topbar-brand" target="_blank" rel="noopener noreferrer">SignSense</a>
           </div>
           <nav className="topbar-nav">
-            <a href="https://youtube.com" target="_blank" rel="noopener noreferrer">See How It Works</a>
-            <a href="/">Home</a>
+            <a href="https://www.youtube.com/watch?v=jpMGv9ffqts" target="_blank" rel="noopener noreferrer">See How It Works</a>
+            <a href="https://signsense.io" target="_blank" rel="noopener noreferrer">Home</a>
             <a href="/contact">Contact</a>
           </nav>
           <button className="menu-toggle" id="menuToggle" aria-label="Menu">
@@ -116,8 +116,8 @@ const Privacy = () => {
       <div className="menu-overlay" id="menuOverlay"></div>
       <div className="menu-panel" id="menuPanel" aria-hidden="true">
         <nav className="menu-list">
-          <a className="menu-item" href="https://youtube.com" target="_blank" rel="noopener">See How It Works <span className="chev">›</span></a>
-          <a className="menu-item" href="/">Home <span className="chev">›</span></a>
+          <a className="menu-item" href="https://www.youtube.com/watch?v=jpMGv9ffqts" target="_blank" rel="noopener">See How It Works <span className="chev">›</span></a>
+          <a className="menu-item" href="https://signsense.io" target="_blank" rel="noopener noreferrer">Home <span className="chev">›</span></a>
           <a className="menu-item" href="/contact">Contact <span className="chev">›</span></a>
         </nav>
         <div className="menu-disclaimer">
@@ -190,18 +190,18 @@ const Privacy = () => {
       <section className="ready-section" data-reveal>
         <div className="ready-img">
           <img src="https://imgur.com/pgBZqHw.png" alt="Ready to review" />
-          <a href="/" className="back-btn">Back to Homepage</a>
+          <a href="https://signsense.io" className="back-btn" target="_blank" rel="noopener noreferrer">Back to Homepage</a>
         </div>
       </section>
       {/* FOOTER (desktop) */}
       <div className="site-footer-wrap">
         <footer className="site-footer">
           <div className="footer-left">
-            <a href="/">
+            <a href="https://signsense.io" target="_blank" rel="noopener noreferrer">
               <img className="footer-logo" src="https://imgur.com/BcUqgKZ.png" alt="SignSense logo" />
             </a>
             <div className="footer-left-inner">
-              <a href="/" className="footer-brand">SignSense</a>
+              <a href="https://signsense.io" className="footer-brand" target="_blank" rel="noopener noreferrer">SignSense</a>
               <div className="footer-tagline">
                 <div>No confusion, no legal jargon.</div>
                 <div>For informational use only. Not legal advice.</div>
@@ -211,7 +211,7 @@ const Privacy = () => {
           <div className="footer-col">
             <div className="footer-title">Quick Menu</div>
             <nav className="footer-links">
-              <a href="https://youtube.com" target="_blank" rel="noopener noreferrer">How it Works</a>
+              <a href="https://www.youtube.com/watch?v=jpMGv9ffqts" target="_blank" rel="noopener noreferrer">How it Works</a>
               <a href="https://tally.so/r/3EGJpA" target="_blank" rel="noopener noreferrer">Leave Review</a>
             </nav>
           </div>
@@ -219,15 +219,15 @@ const Privacy = () => {
             <div className="footer-title">Information</div>
             <nav className="footer-links">
               <a href="/contact">Contact</a>
-              <a href="/">Home</a>
+              <a href="https://signsense.io" target="_blank" rel="noopener noreferrer">Home</a>
             </nav>
           </div>
           <div className="footer-col">
             <div className="footer-title">Socials</div>
             <nav className="footer-links">
               <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">Instagram</a>
-              <a href="https://youtube.com" target="_blank" rel="noopener noreferrer">YouTube</a>
-              <a href="https://x.com" target="_blank" rel="noopener noreferrer">X</a>
+              <a href="https://www.youtube.com/watch?v=jpMGv9ffqts" target="_blank" rel="noopener noreferrer">YouTube</a>
+              <a href="https://x.com/signsense2026?s=21" target="_blank" rel="noopener noreferrer">X</a>
             </nav>
           </div>
         </footer>
@@ -255,7 +255,7 @@ const Privacy = () => {
             <div className="footer-disclaimer">For informational use only. Not legal advice.</div>
           </div>
           <div className="footer-socials">
-            <a className="social-btn" href="https://x.com" target="_blank" rel="noopener" aria-label="X">
+            <a className="social-btn" href="https://x.com/signsense2026?s=21" target="_blank" rel="noopener" aria-label="X">
               <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2H21l-6.52 7.45L22.5 22h-6.73l-4.7-6.35L5.6 22H3l7.07-8.07L1.5 2h6.8l4.22 5.8L18.244 2Zm-1.18 18h1.77L8.05 4h-1.8l10.82 16Z"/></svg>
             </a>
             <a className="social-btn" href="https://facebook.com" target="_blank" rel="noopener" aria-label="Facebook">
@@ -269,7 +269,7 @@ const Privacy = () => {
             <div className="footer-col">
               <h4>Help</h4>
               <a className="footer-link" href="/contact">Contact us</a>
-              <a className="footer-link" href="https://youtube.com" target="_blank" rel="noopener">How it Works</a>
+              <a className="footer-link" href="https://www.youtube.com/watch?v=jpMGv9ffqts" target="_blank" rel="noopener">How it Works</a>
             </div>
             <div className="footer-col">
               <h4>Product</h4>

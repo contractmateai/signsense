@@ -102,7 +102,7 @@ const Cookies = () => {
             <a href="/" className="topbar-brand">SignSense</a>
           </div>
           <nav className="topbar-nav">
-            <a href="https://youtube.com" target="_blank" rel="noopener noreferrer">See How It Works</a>
+            <a href="https://www.youtube.com/watch?v=jpMGv9ffqts" target="_blank" rel="noopener noreferrer">See How It Works</a>
             <a href="/">Home</a>
             <a href="/contact">Contact</a>
           </nav>
@@ -116,7 +116,7 @@ const Cookies = () => {
       <div className="menu-overlay" id="menuOverlay"></div>
       <div className="menu-panel" id="menuPanel" aria-hidden="true">
         <nav className="menu-list">
-          <a className="menu-item" href="https://youtube.com" target="_blank" rel="noopener">See How It Works <span className="chev">›</span></a>
+          <a className="menu-item" href="https://www.youtube.com/watch?v=jpMGv9ffqts" target="_blank" rel="noopener">See How It Works <span className="chev">›</span></a>
           <a className="menu-item" href="/">Home <span className="chev">›</span></a>
           <a className="menu-item" href="/contact">Contact <span className="chev">›</span></a>
         </nav>
@@ -195,7 +195,7 @@ const Cookies = () => {
           <div className="footer-col">
             <div className="footer-title">Quick Menu</div>
             <nav className="footer-links">
-              <a href="https://youtube.com" target="_blank" rel="noopener noreferrer">How it Works</a>
+              <a href="https://www.youtube.com/watch?v=jpMGv9ffqts" target="_blank" rel="noopener noreferrer">How it Works</a>
               <a href="https://tally.so/r/3EGJpA" target="_blank" rel="noopener noreferrer">Leave Review</a>
             </nav>
           </div>
@@ -210,7 +210,7 @@ const Cookies = () => {
             <div className="footer-title">Socials</div>
             <nav className="footer-links">
               <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">Instagram</a>
-              <a href="https://youtube.com" target="_blank" rel="noopener noreferrer">YouTube</a>
+              <a href="https://www.youtube.com/watch?v=jpMGv9ffqts" target="_blank" rel="noopener noreferrer">YouTube</a>
               <a href="https://x.com" target="_blank" rel="noopener noreferrer">X</a>
             </nav>
           </div>
@@ -253,7 +253,7 @@ const Cookies = () => {
             <div className="footer-col">
               <h4>Help</h4>
               <a className="footer-link" href="/contact">Contact us</a>
-              <a className="footer-link" href="https://youtube.com" target="_blank" rel="noopener">How it Works</a>
+              <a className="footer-link" href="https://www.youtube.com/watch?v=jpMGv9ffqts" target="_blank" rel="noopener">How it Works</a>
             </div>
             <div className="footer-col">
               <h4>Product</h4>

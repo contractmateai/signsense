@@ -443,7 +443,8 @@ export default function Home() {
 
     const renderDots = () => {
       dotsEl.innerHTML = "";
-      for (let i = 0; i < TOTAL; i++) {
+      const DOTS_COUNT = 5;
+      for (let i = 0; i < DOTS_COUNT; i++) {
         const b = document.createElement("button");
         b.type = "button";
         b.className = "review-dot";
@@ -910,7 +911,7 @@ export default function Home() {
 
           <nav className="topbar-nav">
             <a
-              href="https://youtube.com"
+              href="https://www.youtube.com/@SignSense2026"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -944,7 +945,7 @@ export default function Home() {
         <nav className="menu-list">
           <a
             className="menu-item"
-            href="https://youtube.com"
+            href="https://www.youtube.com/@SignSense2026"
             target="_blank"
             rel="noopener"
           >
@@ -1110,7 +1111,7 @@ export default function Home() {
           <div className="yt-wrap show-on-mobile">
             <div className="yt-box">
               <iframe
-                src="https://www.youtube.com/embed/dQw4w9WgXcQ?rel=0"
+                src="https://www.youtube.com/embed/jpMGv9ffqts?si=cY0_Ez-stxcMPQ6F"
                 title="SignSense video"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 allowFullScreen
@@ -1220,7 +1221,7 @@ export default function Home() {
             </p>
             <a
               id="insightReviewBtn"
-              href="https://youtube.com"
+              href="https://www.youtube.com/@SignSense2026"
               target="_blank"
               rel="noopener noreferrer"
               className="cta-outline animated-arrow-bttn"
@@ -1270,7 +1271,7 @@ export default function Home() {
             </p>
             <a
               id="watchBtn"
-              href="https://youtube.com"
+              href="https://www.youtube.com/@SignSense2026"
               target="_blank"
               rel="noopener noreferrer"
               className="watch-btn animated-arrow-bttn"
@@ -1284,7 +1285,7 @@ export default function Home() {
           <div className="video-box">
             <iframe
               className="video-embed"
-              src="https://www.youtube.com/embed/dQw4w9WgXcQ?rel=0"
+              src="https://www.youtube.com/embed/jpMGv9ffqts?si=cY0_Ez-stxcMPQ6F"
               title="SignSense Video"
               frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -1464,7 +1465,7 @@ export default function Home() {
             <div className="footer-title">Quick Menu</div>
             <nav className="footer-links">
               <a
-                href="https://youtube.com"
+                href="https://www.youtube.com/@SignSense2026"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -1499,7 +1500,7 @@ export default function Home() {
                 Instagram
               </a>
               <a
-                href="https://youtube.com"
+                href="https://www.youtube.com/@SignSense2026"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -1589,7 +1590,7 @@ export default function Home() {
               </a>
               <a
                 className="footer-link"
-                href="https://youtube.com"
+                href="https://www.youtube.com/@SignSense2026"
                 target="_blank"
                 rel="noopener"
               >

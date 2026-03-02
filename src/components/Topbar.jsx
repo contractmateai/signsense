@@ -28,23 +28,23 @@ const Topbar = forwardRef(({ menuOpen, setMenuOpen }, ref) => {
     <div className={`topbar-wrap ${hide ? 'hide' : ''}`} ref={ref}>
       <div className={`topbar ${menuOpen ? 'merged' : ''}`}>
         <div className="topbar-left">
-          <a href="/">
+          <a href="https://signsense.io" target="_blank" rel="noopener noreferrer">
             <img
               className="topbar-logo"
               src="https://imgur.com/t8UWYN3.png"
               alt="SignSense logo"
             />
           </a>
-          <a href="/" className="topbar-brand">
+          <a href="https://signsense.io" className="topbar-brand" target="_blank" rel="noopener noreferrer">
             SignSense
           </a>
         </div>
 
         <nav className="topbar-nav">
-          <a href="https://youtube.com" target="_blank" rel="noopener noreferrer">
+          <a href="https://www.youtube.com/watch?v=jpMGv9ffqts" target="_blank" rel="noopener noreferrer">
             See How It Works
           </a>
-          <a href="/">Home</a>
+          <a href="https://signsense.io" target="_blank" rel="noopener noreferrer">Home</a>
           <a href="/contact">Contact</a>
         </nav>
 

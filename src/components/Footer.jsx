@@ -1,28 +1,28 @@
 // src/components/Footer.jsx
 import React from 'react';
-
-const Footer = () => {
-  return (
-    <div className="site-footer-wrap desktop-only">
-      <footer className="site-footer desktop-only">
-        <div className="footer-left">
-          <a href="/">
-            <img
-              className="footer-logo"
-              src="https://imgur.com/BcUqgKZ.png"
-              alt="SignSense logo"
+            <a
+                href="https://www.youtube.com/watch?v=jpMGv9ffqts"
+              target="_blank"
+              rel="noopener noreferrer"
+            <a
+                href="https://www.youtube.com/watch?v=jpMGv9ffqts"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              How it Works
+            </a>
             />
           </a>
 
           <div className="footer-left-inner">
-            <a href="/" className="footer-brand">
+            <a href="https://signsense.io" className="footer-brand" target="_blank" rel="noopener noreferrer">
               SignSense
             </a>
             <div className="footer-tagline">
               <div>No confusion, no legal jargon.</div>
               <div>For informational use only. Not legal advice.</div>
             </div>
-                href="https://youtube.com/@signsense2026?si=Mme3MOiXLO3Cn8Kx"
+                href="https://www.youtube.com/@SignSense2026"
         </div>
 
         <div className="footer-col">
@@ -49,7 +49,7 @@ const Footer = () => {
           <div className="footer-title">Information</div>
           <nav className="footer-links">
             <a href="contact.html">Contact</a>
-            <a href="/">Home</a>
+            <a href="https://signsense.io" target="_blank" rel="noopener noreferrer">Home</a>
           </nav>
         </div>
 
@@ -65,7 +65,7 @@ const Footer = () => {
               X
             </a>
             <a
-              href="https://youtube.com/@signsense2026?si=Mme3MOiXLO3Cn8Kx"
+              href="https://www.youtube.com/@SignSense2026"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="YouTube"
