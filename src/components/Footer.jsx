@@ -57,25 +57,28 @@ const Footer = () => {
           <div className="footer-title">Socials</div>
           <nav className="footer-links">
             <a
-              href="https://instagram.com"
+              href="https://x.com/signsense2026?s=21"
               target="_blank"
               rel="noopener noreferrer"
+              aria-label="X (Twitter)"
             >
-              Instagram
+              X
             </a>
             <a
-              href="https://youtube.com"
+              href="https://youtube.com/@signsense2026?si=Mme3MOiXLO3Cn8Kx"
               target="_blank"
               rel="noopener noreferrer"
+              aria-label="YouTube"
             >
               YouTube
             </a>
             <a
-              href="https://x.com"
+              href="https://instagram.com/signsense.io/"
               target="_blank"
               rel="noopener noreferrer"
+              aria-label="Instagram"
             >
-              X
+              Instagram
             </a>
           </nav>
         </div>

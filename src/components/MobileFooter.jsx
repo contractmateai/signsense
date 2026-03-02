@@ -15,17 +15,6 @@ const MobileFooter = () => {
         </div>
 
         <div className="footer-socials">
-          <a
-            className="social-btn"
-            <a
-              className="social-btn"
-              href="https://youtube.com/@signsense2026?si=Mme3MOiXLO3Cn8Kx"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="YouTube"
-            >
-              <svg viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M23.498 6.186a2.998 2.998 0 0 0-2.115-2.115C19.413 3.5 12 3.5 12 3.5s-7.413 0-9.383.571A2.998 2.998 0 0 0 .502 6.186C0 8.157 0 12 0 12s0 3.843.502 5.814a2.998 2.998 0 0 0 2.115 2.115C4.587 20.5 12 20.5 12 20.5s7.413 0 9.383-.571a2.998 2.998 0 0 0 2.115-2.115C24 15.843 24 12 24 12s0-3.843-.502-5.814ZM9.545 15.568V8.432L15.818 12l-6.273 3.568Z" />
               </svg>
             </a>
             className="social-btn"
