@@ -943,20 +943,9 @@ export default function Home() {
         ref={menuPanelRef}
       >
         <nav className="menu-list">
-          <a
-            className="menu-item"
-            href="https://youtu.be/jpMGv9ffqts?si=Kgy18F80rMJ6Qeln"
-            target="_blank"
-            rel="noopener"
-          >
-            <a className="menu-item" href="https://www.youtube.com/watch?v=jpMGv9ffqts" target="_blank" rel="noopener">See How It Works <span className="chev">›</span></a>
-          </a>
-          <a className="menu-item" href="/">
-            <a className="menu-item" href="/">Home <span className="chev">›</span></a>
-          </a>
-          <a className="menu-item" href="/contact">
-            Contact <span className="chev">›</span>
-          </a>
+          <a className="menu-item" href="https://www.youtube.com/watch?v=jpMGv9ffqts" target="_blank" rel="noopener">See How It Works <span className="chev">›</span></a>
+          <a className="menu-item" href="/">Home <span className="chev">›</span></a>
+          <a className="menu-item" href="/contact">Contact <span className="chev">›</span></a>
         </nav>
         <div className="menu-disclaimer">
           <div>Not legal advice.</div>

@@ -228,7 +228,7 @@ function Contact() {
       </section>
       <div className="after-hero-spacer"></div>
       {/* CONTACT */}
-      <section className="contact-section" data-aos="fade-up" style={{ marginTop: '64px' }}>
+      <section className="contact-section" data-aos="fade-up" style={{ marginTop: '90px' }}>
         <div className="contact-wrap" id="contact">
           <div className="contact-card">
             {/* Form and aside are siblings in the grid */}
@@ -355,7 +355,7 @@ function Contact() {
             <div className="footer-title">Socials</div>
             <nav className="footer-links">
               <a href="https://www.instagram.com/signsense.io/" target="_blank" rel="noopener noreferrer">Instagram</a>
-              <a href="https://youtu.be/jpMGv9ffqts?si=CDUA8l6L4Vin9qer" target="_blank" rel="noopener noreferrer">YouTube</a>
+              <a href="https://www.youtube.com/@SignSense2026" target="_blank" rel="noopener noreferrer">YouTube</a>
               <a href="https://x.com/signsense2026?s=21" target="_blank" rel="noopener noreferrer">X</a>
             </nav>
           </div>
@@ -376,12 +376,10 @@ function Contact() {
       <footer className="site-footer-mobile">
         <div className="footer-wrap">
           <div className="footer-brandrow">
-            <div className="footer-logo">
-              <a href="https://signsense.io">
-                <img src="https://imgur.com/t8UWYN3.png" alt="SignSense logo" />
-                <span>SignSense</span>
-              </a>
-            </div>
+            <a href="https://signsense.io" style={{ display: 'flex', alignItems: 'center', gap: '6px', textDecoration: 'none' }}>
+              <img src="https://imgur.com/t8UWYN3.png" alt="SignSense logo" style={{ width: '32px', height: '32px', borderRadius: '8px', marginTop: '-4px' }} />
+              <span style={{ fontSize: '22px', fontWeight: 400 }}>SignSense</span>
+            </a>
             <div className="footer-copy">© 2025 SignSense. All rights reserved.</div>
             <div className="footer-disclaimer">For informational use only. Not legal advice.</div>
           </div>
