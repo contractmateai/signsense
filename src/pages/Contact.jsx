@@ -187,8 +187,8 @@ function Contact() {
             <a href="https://signsense.io" className="topbar-brand">SignSense</a>
           </div>
           <nav className="topbar-nav">
-            <a href="https://youtube.com/@signsense2026?si=Mme3MOiXLO3Cn8Kx" target="_blank" rel="noopener noreferrer">See How It Works</a>
-            <a href="https://signsense.io">Home</a>
+            <a href="https://www.youtube.com/watch?v=jpMGv9ffqts" target="_blank" rel="noopener noreferrer">See How It Works</a>
+            <a href="/">Home</a>
             <a href="/contact">Contact</a>
           </nav>
           <button className="menu-toggle" id="menuToggle" aria-label="Menu">
@@ -201,8 +201,8 @@ function Contact() {
       <div className="menu-overlay" id="menuOverlay"></div>
       <div className="menu-panel" id="menuPanel" aria-hidden="true">
         <nav className="menu-list">
-          <a className="menu-item" href="https://youtube.com/@signsense2026?si=Mme3MOiXLO3Cn8Kx" target="_blank" rel="noopener">See How It Works <span className="chev">›</span></a>
-          <a className="menu-item" href="https://signsense.io">Home <span className="chev">›</span></a>
+          <a className="menu-item" href="https://www.youtube.com/watch?v=jpMGv9ffqts" target="_blank" rel="noopener">See How It Works <span className="chev">›</span></a>
+          <a className="menu-item" href="/">Home <span className="chev">›</span></a>
           <a className="menu-item" href="/contact">Contact <span className="chev">›</span></a>
         </nav>
         <div className="menu-disclaimer">
@@ -340,7 +340,7 @@ function Contact() {
           <div className="footer-col">
             <div className="footer-title">Quick Menu</div>
             <nav className="footer-links">
-              <a href="https://youtu.be/jpMGv9ffqts?si=CDUA8l6L4Vin9qer" target="_blank" rel="noopener noreferrer">How it Works</a>
+              <a href="https://www.youtube.com/watch?v=jpMGv9ffqts" target="_blank" rel="noopener noreferrer">How it Works</a>
               <a href="https://tally.so/r/3EGJpA" target="_blank" rel="noopener noreferrer">Leave Review</a>
             </nav>
           </div>
@@ -348,7 +348,7 @@ function Contact() {
             <div className="footer-title">Information</div>
             <nav className="footer-links">
               <a href="/contact">Contact</a>
-              <a href="https://signsense.io">Home</a>
+              <a href="/">Home</a>
             </nav>
           </div>
           <div className="footer-col">

@@ -102,7 +102,7 @@ const Privacy = () => {
             <a href="/" className="topbar-brand">SignSense</a>
           </div>
           <nav className="topbar-nav">
-            <a href="https://youtu.be/jpMGv9ffqts?si=CDUA8l6L4Vin9qer" target="_blank" rel="noopener noreferrer">See How It Works</a>
+            <a href="https://www.youtube.com/watch?v=jpMGv9ffqts" target="_blank" rel="noopener noreferrer">See How It Works</a>
             <a href="/">Home</a>
             <a href="/contact">Contact</a>
           </nav>
@@ -117,7 +117,7 @@ const Privacy = () => {
       <div className="menu-panel" id="menuPanel" aria-hidden="true">
         <nav className="menu-list">
           <a className="menu-item" href="https://www.youtube.com/watch?v=jpMGv9ffqts" target="_blank" rel="noopener">See How It Works <span className="chev">›</span></a>
-          <a className="menu-item" href="https://signsense.io" target="_blank" rel="noopener noreferrer">Home <span className="chev">›</span></a>
+          <a className="menu-item" href="/">Home <span className="chev">›</span></a>
           <a className="menu-item" href="/contact">Contact <span className="chev">›</span></a>
         </nav>
         <div className="menu-disclaimer">
@@ -190,7 +190,7 @@ const Privacy = () => {
       <section className="ready-section" data-reveal>
         <div className="ready-img">
           <img src="https://imgur.com/pgBZqHw.png" alt="Ready to review" />
-          <a href="https://signsense.io" className="back-btn" target="_blank" rel="noopener noreferrer">Back to Homepage</a>
+          <a href="/" className="back-btn">Back to Homepage</a>
         </div>
       </section>
       {/* FOOTER (desktop) */}
@@ -211,7 +211,7 @@ const Privacy = () => {
           <div className="footer-col">
             <div className="footer-title">Quick Menu</div>
             <nav className="footer-links">
-              <a href="https://youtu.be/jpMGv9ffqts?si=CDUA8l6L4Vin9qer" target="_blank" rel="noopener noreferrer">How it Works</a>
+              <a href="https://www.youtube.com/watch?v=jpMGv9ffqts" target="_blank" rel="noopener noreferrer">How it Works</a>
               <a href="https://tally.so/r/3EGJpA" target="_blank" rel="noopener noreferrer">Leave Review</a>
             </nav>
           </div>
@@ -257,9 +257,6 @@ const Privacy = () => {
           <div className="footer-socials">
             <a className="social-btn" href="https://x.com/signsense2026?s=21" target="_blank" rel="noopener" aria-label="X">
               <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2H21l-6.52 7.45L22.5 22h-6.73l-4.7-6.35L5.6 22H3l7.07-8.07L1.5 2h6.8l4.22 5.8L18.244 2Zm-1.18 18h1.77L8.05 4h-1.8l10.82 16Z"/></svg>
-            </a>
-            <a className="social-btn" href="https://facebook.com" target="_blank" rel="noopener" aria-label="Facebook">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 12.07C22 6.52 17.52 2 12 2S2 6.52 2 12.07c0 5.02 3.66 9.19 8.44 9.93v-7.03H7.9V12.1h2.54V9.79c0-2.5 1.49-3.88 3.77-3.88 1.09 0 2.24.2 2.24.2v2.47h-1.26c-1.24 0-1.63.77-1.63 1.56v1.87h2.78l-.44 2.87h-2.34V22c4.78-.74 8.44-4.91 8.44-9.93Z"/></svg>
             </a>
             <a className="social-btn" href="https://www.instagram.com/signsense.io/" target="_blank" rel="noopener" aria-label="Instagram">
               <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7Zm5 3.5a5.5 5.5 0 1 1 0 11.001 5.5 5.5 0 0 1 0-11Zm0 2a3.5 3.5 0 1 0 .001 7.001A3.5 3.5 0 0 0 12 9.5Zm5.25-2.25a1 1 0 1 1 0 2.001 1 1 0 0 1 0-2Z"/></svg>

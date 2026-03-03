@@ -911,11 +911,11 @@ export default function Home() {
 
           <nav className="topbar-nav">
             <a
-              href="https://www.youtube.com/@SignSense2026"
+              href="https://youtu.be/jpMGv9ffqts?si=Kgy18F80rMJ6Qeln"
               target="_blank"
               rel="noopener noreferrer"
             >
-              See How It Works
+              <a href="https://www.youtube.com/watch?v=jpMGv9ffqts" target="_blank" rel="noopener noreferrer">See How It Works</a>
             </a>
             <a href="/">Home</a>
             <a href="/contact">Contact</a>
@@ -945,14 +945,14 @@ export default function Home() {
         <nav className="menu-list">
           <a
             className="menu-item"
-            href="https://www.youtube.com/@SignSense2026"
+            href="https://youtu.be/jpMGv9ffqts?si=Kgy18F80rMJ6Qeln"
             target="_blank"
             rel="noopener"
           >
-            See How It Works <span className="chev">›</span>
+            <a className="menu-item" href="https://www.youtube.com/watch?v=jpMGv9ffqts" target="_blank" rel="noopener">See How It Works <span className="chev">›</span></a>
           </a>
           <a className="menu-item" href="/">
-            Home <span className="chev">›</span>
+            <a className="menu-item" href="/">Home <span className="chev">›</span></a>
           </a>
           <a className="menu-item" href="/contact">
             Contact <span className="chev">›</span>
@@ -1271,7 +1271,7 @@ export default function Home() {
             </p>
             <a
               id="watchBtn"
-              href="https://www.youtube.com/@SignSense2026"
+              href="https://youtu.be/jpMGv9ffqts?si=Kgy18F80rMJ6Qeln"
               target="_blank"
               rel="noopener noreferrer"
               className="watch-btn animated-arrow-bttn"
@@ -1465,11 +1465,11 @@ export default function Home() {
             <div className="footer-title">Quick Menu</div>
             <nav className="footer-links">
               <a
-                href="https://www.youtube.com/@SignSense2026"
+                href="https://youtu.be/jpMGv9ffqts?si=Kgy18F80rMJ6Qeln"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                How it Works
+                <a href="https://www.youtube.com/watch?v=jpMGv9ffqts" target="_blank" rel="noopener noreferrer">How it Works</a>
               </a>
               <a
                 href="https://tally.so/r/3EGJpA"
@@ -1493,7 +1493,7 @@ export default function Home() {
             <div className="footer-title">Socials</div>
             <nav className="footer-links">
               <a
-                href="https://instagram.com"
+                href="https://www.instagram.com/signsense.io/"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -1506,7 +1506,7 @@ export default function Home() {
               >
                 YouTube
               </a>
-              <a href="https://x.com" target="_blank" rel="noopener noreferrer">
+              <a href="https://x.com/signsense2026?s=21" target="_blank" rel="noopener noreferrer">
                 X
               </a>
             </nav>
@@ -1547,7 +1547,7 @@ export default function Home() {
           <div className="footer-socials">
             <a
               className="social-btn"
-              href="https://x.com"
+              href="https://x.com/signsense2026?s=21"
               target="_blank"
               rel="noopener"
               aria-label="X"
@@ -1557,17 +1557,6 @@ export default function Home() {
               </svg>
             </a>
 
-            <a
-              className="social-btn"
-              href="https://facebook.com"
-              target="_blank"
-              rel="noopener"
-              aria-label="Facebook"
-            >
-              <svg viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M22 12.07C22 6.52 17.52 2 12 2S2 6.52 2 12.07c0 5.02 3.66 9.19 8.44 9.93v-7.03H7.9V12.1h2.54V9.79c0-2.5 1.49-3.88 3.77-3.88 1.09 0 2.24.2 2.24.2v2.47h-1.26c-1.24 0-1.63.77-1.63 1.56v1.87h2.78l-.44 2.87h-2.34V22c4.78-.74 8.44-4.91 8.44-9.93Z" />
-              </svg>
-            </a>
 
             <a
               className="social-btn"
@@ -1594,7 +1583,7 @@ export default function Home() {
                 target="_blank"
                 rel="noopener"
               >
-                How it Works
+                <a className="footer-link" href="https://www.youtube.com/watch?v=jpMGv9ffqts" target="_blank" rel="noopener">How it Works</a>
               </a>
             </div>
 
