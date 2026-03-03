@@ -211,7 +211,7 @@ const Terms = () => {
           <div className="footer-col">
             <div className="footer-title">Quick Menu</div>
             <nav className="footer-links">
-              <a href="https://www.youtube.com/watch?v=jpMGv9ffqts" target="_blank" rel="noopener noreferrer">How it Works</a>
+              <a href="https://youtu.be/jpMGv9ffqts?si=CDUA8l6L4Vin9qer" target="_blank" rel="noopener noreferrer">How it Works</a>
               <a href="https://tally.so/r/3EGJpA" target="_blank" rel="noopener noreferrer">Leave Review</a>
             </nav>
           </div>
@@ -226,8 +226,8 @@ const Terms = () => {
             <div className="footer-title">Socials</div>
             <nav className="footer-links">
               <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">Instagram</a>
-              <a href="https://www.youtube.com/watch?v=jpMGv9ffqts" target="_blank" rel="noopener noreferrer">YouTube</a>
-              <a href="https://x.com" target="_blank" rel="noopener noreferrer">X</a>
+              <a href="https://youtu.be/jpMGv9ffqts?si=CDUA8l6L4Vin9qer" target="_blank" rel="noopener noreferrer">YouTube</a>
+              <a href="https://x.com/signsense2026?s=21" target="_blank" rel="noopener noreferrer">X</a>
             </nav>
           </div>
         </footer>

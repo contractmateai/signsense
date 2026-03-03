@@ -41,7 +41,7 @@ const Topbar = forwardRef(({ menuOpen, setMenuOpen }, ref) => {
         </div>
 
         <nav className="topbar-nav">
-          <a href="https://www.youtube.com/watch?v=jpMGv9ffqts" target="_blank" rel="noopener noreferrer">
+          <a href="https://youtu.be/jpMGv9ffqts?si=CDUA8l6L4Vin9qer" target="_blank" rel="noopener noreferrer">
             See How It Works
           </a>
           <a href="https://signsense.io" target="_blank" rel="noopener noreferrer">Home</a>

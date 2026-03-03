@@ -16,17 +16,17 @@ const MobileFooter = () => {
 
         <div className="footer-socials">
               </svg>
+            <a
+              className="social-btn"
+              href="https://youtu.be/jpMGv9ffqts?si=CDUA8l6L4Vin9qer"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="YouTube"
+            >
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M23.498 6.186a2.998 2.998 0 0 0-2.115-2.115C19.413 3.5 12 3.5 12 3.5s-7.413 0-9.383.571A2.998 2.998 0 0 0 .502 6.186C0 8.157 0 12 0 12s0 3.843.502 5.814a2.998 2.998 0 0 0 2.115 2.115C4.587 20.5 12 20.5 12 20.5s7.413 0 9.383-.571a2.998 2.998 0 0 0 2.115-2.115C24 15.843 24 12 24 12s0-3.843-.502-5.814ZM9.545 15.568V8.432L15.818 12l-6.273 3.568Z" />
+              </svg>
             </a>
-            className="social-btn"
-            href="https://facebook.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Facebook"
-          >
-            <svg viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M22 12.07C22 6.52 17.52 2 12 2S2 6.52 2 12.07c0 5.02 3.66 9.19 8.44 9.93v-7.03H7.9V12.1h2.54V9.79c0-2.5 1.49-3.88 3.77-3.88 1.09 0 2.24.2 2.24.2v2.47h-1.26c-1.24 0-1.63.77-1.63 1.56v1.87h2.78l-.44 2.87h-2.34V22c4.78-.74 8.44-4.91 8.44-9.93Z" />
-            </svg>
-          </a>
 
           <a
             className="social-btn"
@@ -71,7 +71,7 @@ const MobileFooter = () => {
               </a>
               <a
                 className="social-btn"
-                href="https://www.youtube.com/@SignSense2026"
+                href="https://youtu.be/jpMGv9ffqts?si=CDUA8l6L4Vin9qer"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="YouTube"

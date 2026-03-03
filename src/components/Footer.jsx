@@ -1,18 +1,12 @@
 // src/components/Footer.jsx
 import React from 'react';
             <a
-                href="https://www.youtube.com/watch?v=jpMGv9ffqts"
-              target="_blank"
-              rel="noopener noreferrer"
-            <a
-                href="https://www.youtube.com/watch?v=jpMGv9ffqts"
+              href="https://youtu.be/jpMGv9ffqts?si=CDUA8l6L4Vin9qer"
               target="_blank"
               rel="noopener noreferrer"
             >
               How it Works
             </a>
-            />
-          </a>
 
           <div className="footer-left-inner">
             <a href="https://signsense.io" className="footer-brand" target="_blank" rel="noopener noreferrer">
@@ -65,36 +59,36 @@ import React from 'react';
               X
             </a>
             <a
-              href="https://www.youtube.com/@SignSense2026"
+              href="https://youtu.be/jpMGv9ffqts?si=CDUA8l6L4Vin9qer"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="YouTube"
+            <a
+              href="https://youtu.be/jpMGv9ffqts?si=CDUA8l6L4Vin9qer"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              How it Works
+            </a>
+              aria-label="Instagram"
+            >
+              Instagram
+            </a>
+          </nav>
+            <a
+              href="https://x.com/signsense2026?s=21"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="X (Twitter)"
+            >
+              X
+            </a>
+            <a
+              href="https://youtu.be/jpMGv9ffqts?si=CDUA8l6L4Vin9qer"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="YouTube"
             >
               YouTube
             </a>
-            <a
-              href="https://instagram.com/signsense.io/"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Instagram"
-            >
-              Instagram
-            </a>
-          </nav>
-        </div>
-      </footer>
-
-      <div className="footer-bottom">
-        <div className="footer-divider"></div>
-        <div className="footer-bottom-links">
-          <a href="privacy.html">Privacy Policy</a>
-          <a href="terms.html">Terms of Service</a>
-          <a href="cookies.html">Cookie Policy</a>
-          <span className="footer-copy">© 2025 SignSense. All rights reserved.</span>
-        </div>
-      </div>
-    </div>
-  );
-};
-
 export default Footer;

@@ -96,14 +96,14 @@ const Privacy = () => {
       <div className="topbar-wrap" id="topbarWrap">
         <div className="topbar" id="topbar">
           <div className="topbar-left">
-            <a href="https://signsense.io" target="_blank" rel="noopener noreferrer">
+            <a href="/">
               <img className="topbar-logo" src="https://imgur.com/t8UWYN3.png" alt="SignSense logo" />
             </a>
-            <a href="https://signsense.io" className="topbar-brand" target="_blank" rel="noopener noreferrer">SignSense</a>
+            <a href="/" className="topbar-brand">SignSense</a>
           </div>
           <nav className="topbar-nav">
-            <a href="https://www.youtube.com/watch?v=jpMGv9ffqts" target="_blank" rel="noopener noreferrer">See How It Works</a>
-            <a href="https://signsense.io" target="_blank" rel="noopener noreferrer">Home</a>
+            <a href="https://youtu.be/jpMGv9ffqts?si=CDUA8l6L4Vin9qer" target="_blank" rel="noopener noreferrer">See How It Works</a>
+            <a href="/">Home</a>
             <a href="/contact">Contact</a>
           </nav>
           <button className="menu-toggle" id="menuToggle" aria-label="Menu">
@@ -131,7 +131,7 @@ const Privacy = () => {
         <div className="hero-bg" id="heroBg"></div>
         <div className="hero-content" data-reveal>
           <h1 className="hero-title">Privacy Policy</h1>
-          <div className="hero-sub">Last Updated: 24 August 2025</div>
+          <div className="hero-sub">Last Updated: 3 March 2026</div>
         </div>
       </section>
       <div className="after-hero-spacer"></div>
@@ -197,11 +197,11 @@ const Privacy = () => {
       <div className="site-footer-wrap">
         <footer className="site-footer">
           <div className="footer-left">
-            <a href="https://signsense.io" target="_blank" rel="noopener noreferrer">
+            <a href="/">
               <img className="footer-logo" src="https://imgur.com/BcUqgKZ.png" alt="SignSense logo" />
             </a>
             <div className="footer-left-inner">
-              <a href="https://signsense.io" className="footer-brand" target="_blank" rel="noopener noreferrer">SignSense</a>
+              <a href="/" className="footer-brand">SignSense</a>
               <div className="footer-tagline">
                 <div>No confusion, no legal jargon.</div>
                 <div>For informational use only. Not legal advice.</div>
@@ -211,7 +211,7 @@ const Privacy = () => {
           <div className="footer-col">
             <div className="footer-title">Quick Menu</div>
             <nav className="footer-links">
-              <a href="https://www.youtube.com/watch?v=jpMGv9ffqts" target="_blank" rel="noopener noreferrer">How it Works</a>
+              <a href="https://youtu.be/jpMGv9ffqts?si=CDUA8l6L4Vin9qer" target="_blank" rel="noopener noreferrer">How it Works</a>
               <a href="https://tally.so/r/3EGJpA" target="_blank" rel="noopener noreferrer">Leave Review</a>
             </nav>
           </div>
@@ -219,14 +219,14 @@ const Privacy = () => {
             <div className="footer-title">Information</div>
             <nav className="footer-links">
               <a href="/contact">Contact</a>
-              <a href="https://signsense.io" target="_blank" rel="noopener noreferrer">Home</a>
+              <a href="/">Home</a>
             </nav>
           </div>
           <div className="footer-col">
             <div className="footer-title">Socials</div>
             <nav className="footer-links">
-              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">Instagram</a>
-              <a href="https://www.youtube.com/watch?v=jpMGv9ffqts" target="_blank" rel="noopener noreferrer">YouTube</a>
+              <a href="https://www.instagram.com/signsense.io/" target="_blank" rel="noopener noreferrer">Instagram</a>
+              <a href="https://www.youtube.com/@SignSense2026" target="_blank" rel="noopener noreferrer">YouTube</a>
               <a href="https://x.com/signsense2026?s=21" target="_blank" rel="noopener noreferrer">X</a>
             </nav>
           </div>

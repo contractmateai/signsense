@@ -340,7 +340,7 @@ function Contact() {
           <div className="footer-col">
             <div className="footer-title">Quick Menu</div>
             <nav className="footer-links">
-              <a href="https://youtube.com/@signsense2026?si=Mme3MOiXLO3Cn8Kx" target="_blank" rel="noopener noreferrer">How it Works</a>
+              <a href="https://youtu.be/jpMGv9ffqts?si=CDUA8l6L4Vin9qer" target="_blank" rel="noopener noreferrer">How it Works</a>
               <a href="https://tally.so/r/3EGJpA" target="_blank" rel="noopener noreferrer">Leave Review</a>
             </nav>
           </div>
@@ -355,7 +355,7 @@ function Contact() {
             <div className="footer-title">Socials</div>
             <nav className="footer-links">
               <a href="https://www.instagram.com/signsense.io/" target="_blank" rel="noopener noreferrer">Instagram</a>
-              <a href="https://youtube.com/@signsense2026?si=Mme3MOiXLO3Cn8Kx" target="_blank" rel="noopener noreferrer">YouTube</a>
+              <a href="https://youtu.be/jpMGv9ffqts?si=CDUA8l6L4Vin9qer" target="_blank" rel="noopener noreferrer">YouTube</a>
               <a href="https://x.com/signsense2026?s=21" target="_blank" rel="noopener noreferrer">X</a>
             </nav>
           </div>
