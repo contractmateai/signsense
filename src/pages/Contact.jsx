@@ -221,9 +221,7 @@ function Contact() {
         <div className="hero-content" data-aos="fade-up">
           <div className="badge">We’re Here For You</div>
           <h1 className="hero-title" style={{ marginTop: 32, marginBottom: 18 }}>We’re Ready To<br />Listen And Respond</h1>
-          <div className="hero-sub-alt" style={{ fontSize: 18, fontWeight: 400, marginTop: 10, marginBottom: 10, color: '#bdbdbd' }}>
-            Wether you have any questions or ideas we're here for you.
-          </div>
+          {/* Removed mobile/desktop hero-sub-alt sentence as requested */}
         </div>
       </section>
       <div className="after-hero-spacer"></div>
@@ -376,10 +374,10 @@ function Contact() {
       <footer className="site-footer-mobile">
         <div className="footer-wrap">
           <div className="footer-brandrow">
-            <a href="https://signsense.io" style={{ display: 'flex', alignItems: 'center', gap: '6px', textDecoration: 'none' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
               <img src="https://imgur.com/t8UWYN3.png" alt="SignSense logo" style={{ width: '32px', height: '32px', borderRadius: '8px', marginTop: '-4px' }} />
-              <span style={{ fontSize: '22px', fontWeight: 400 }}>SignSense</span>
-            </a>
+              <span style={{ fontSize: '22px', fontWeight: 400, color: '#fff', textDecoration: 'none' }}>SignSense</span>
+            </div>
             <div className="footer-copy">© 2025 SignSense. All rights reserved.</div>
             <div className="footer-disclaimer">For informational use only. Not legal advice.</div>
           </div>
