@@ -14,9 +14,9 @@ import translateHandler from "./api/translate.js";
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// Increase body size limit to handle large resumes (default is 100kb)
-app.use(express.json({ limit: "5mb" }));
-app.use(express.text({ limit: "5mb" }));
+// Increase body size limit to handle larger files (default is 100kb)
+app.use(express.json({ limit: "10mb" }));
+app.use(express.text({ limit: "10mb" }));
 
 // Health check endpoint
 app.get("/health", (req, res) =>
@@ -26,9 +26,9 @@ app.get("/health", (req, res) =>
 
 // Analyze endpoint with timeout
 app.post("/api/analyze", (req, res) => {
-  // Set response timeout to 60 seconds(OpenAI can be slow)
-  req.setTimeout(60000);
-  res.setTimeout(60000);
+  // Set response timeout to 3 minutes (OpenAI can be slow)
+  req.setTimeout(180000);
+  res.setTimeout(180000);
 
   console.log(
     `[${new Date().toISOString()}] POST /api/analyze - Payload size: ${JSON.stringify(req.body).length} bytes`,
@@ -38,9 +38,9 @@ app.post("/api/analyze", (req, res) => {
 
 // Translate endpoint with timeout
 app.post("/api/translate", (req, res) => {
-  // Set response timeout to 30 seconds
-  req.setTimeout(30000);
-  res.setTimeout(30000);
+  // Set response timeout to 3 minutes
+  req.setTimeout(180000);
+  res.setTimeout(180000);
 
   console.log(
     `[${new Date().toISOString()}] POST /api/translate - Target language: ${req.body?.targetLang}`,
